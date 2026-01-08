@@ -1,0 +1,986 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Glacier Peak - премиальный горнолыжный курорт в сердце Альп. Лучшие трассы, отели и апре-ски опыт.">
+    <title>Силичи | ЖИВОЙ РЕПОРТАЖ</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+
+<body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="header">
+        <div class="header-container">
+             <div class="logo">
+                <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
+                    <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
+                    <span class="logo-text">SB.BY</span>
+                </a>
+            </div>
+
+            <nav class="nav-desktop" aria-label="Основная навигация">
+                <a href="#chapter-1">Прибытие</a>
+                <a href="#chapter-2">Трассы</a>
+                <a href="#chapter-3">Подъёмники</a>
+                <a href="#chapter-5">Апре-ски</a>
+                <a href="#faq">FAQ</a>
+            </nav>
+
+            <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="nav-mobile" id="mobileNav" aria-label="Мобильная навигация">
+        <a href="#chapter-1">Прибытие и первые виды</a>
+        <a href="#chapter-2">Трассы и уровни сложности</a>
+        <a href="#chapter-3">Подъёмники и скорость</a>
+        <a href="#chapter-4">Школа и прокат</a>
+        <a href="#chapter-5">Après-ski</a>
+        <a href="#chapter-6">Проживание</a>
+        <a href="#chapter-7">Маршруты</a>
+        <a href="#chapter-8">Как добраться</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#faq">FAQ</a>
+        <a href="#ski-game">Игра</a>
+    </nav>
+
+    <section class="hero" id="top">
+        <picture class="hero-bg">
+            <source media="(min-width: 1024px)"
+                srcset="./assets/img/hero.jfif">
+            <source media="(min-width: 768px)"
+                srcset="https://images.unsplash.com/photo-1551632786-de41ec16a?auto=format&fit=crop&w=1024&h=700&q=80 1024w">
+            <img src="https://images.unsplash.com/photo-1551632786-de41ec16a?auto=format&fit=crop&w=768&h=600&q=80"
+                alt="Горные вершины в снегу" loading="eager" width="1440" height="800">
+        </picture>
+
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">СИЛИЧИ</h1>
+            <p class="hero-tagline">Горнолыжный центр</p>
+
+            <div class="hero-cta">
+                <button class="btn btn-primary" id="btnSkiPass">Купить ски-пасс</button>
+                <button class="btn btn-secondary" id="btnPlan">Планировать поездку</button>
+            </div>
+
+            <div class="hero-badges" aria-label="Ключевые показатели курорта">
+                <div class="badge">
+                    <span class="badge-label">Высота</span>
+                    <span class="badge-value">3458 м</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-label">Сезон</span>
+                    <span class="badge-value">Дек–Апр</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-label">Трассы</span>
+                    <span class="badge-value">142</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-label">Подъёмники</span>
+                    <span class="badge-value">38</span>
+                </div>
+            </div>
+        </div>
+
+        <a class="scroll-hint" href="#chapter-1" aria-label="Прокрутить к следующему разделу">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 5v10m0 0l-3-3m3 3l3-3" stroke="currentColor" stroke-width="2" />
+            </svg>
+        </a>
+    </section>
+
+
+    <div class="layout">
+        <aside class="sidebar-nav" aria-label="Содержание">
+            <nav class="contents">
+                <h3>Содержание</h3>
+                <ol>
+                    <li><a href="#chapter-1" data-chapter="1">Прибытие и первые виды</a></li>
+                    <li><a href="#chapter-2" data-chapter="2">Трассы и уровни сложности</a></li>
+                    <li><a href="#chapter-3" data-chapter="3">Подъёмники и скорость</a></li>
+                    <li><a href="#chapter-4" data-chapter="4">Школа и прокат</a></li>
+                    <li><a href="#chapter-5" data-chapter="5">Après-ski</a></li>
+                    <li><a href="#chapter-6" data-chapter="6">Проживание</a></li>
+                    <li><a href="#chapter-7" data-chapter="7">Маршруты</a></li>
+                    <li><a href="#chapter-8" data-chapter="8">Как добраться</a></li>
+                </ol>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <article id="chapter-1" class="chapter">
+                <header class="chapter-header">
+                    <h2 class="chapter-title">Прибытие и первые виды</h2>
+                    <p class="chapter-subtitle">Момент, когда горный воздух наполняет лёгкие, а взор теряется в величии
+                        пиков</p>
+                </header>
+
+                <div class="chapter-content">
+                    <div class="text-block">
+                        <p>Когда самолёт начинает снижение над долиной Монблана, душа замирает. Ниже расстилается ковёр
+                            нетронутого снега, прерываемый силуэтами средневековых деревень и сверкающих озёр. Каждый
+                            приезжий повторяет одно и то же движение — прижимается к иллюминатору, не веря собственным
+                            глазам. Glacier Peak встречает вас не просто как курорт, а как гостя, достойного величия
+                            природы.</p>
+                        <p>Трансфер от аэропорта занимает ровно 90 минут — это время, когда ваш организм привыкает к
+                            высоте, а ум начинает осознавать масштаб предстоящего приключения. На извилистой дороге с
+                            видами, способными остановить дыхание, вы пересекаете несколько климатических зон. Внизу —
+                            зелень долины, выше — буковые леса, ещё выше — хвойники, укутанные инеем, и, наконец,
+                            белоснежные вершины, по которым вскоре будут скользить лыжи.</p>
+                        <p>Поселение Glacier Peak расположено на высоте 1800 м — оптимально для акклиматизации. Здесь
+                            уютные шале с каменными стенами соседствуют с современными зданиями, сохраняя историческое
+                            очарование. Первый день — это не спешка на склоны, а медленное знакомство: прогулка по
+                            деревне, горячий шоколад с видом на пики, встреча с местными инструкторами, которые уже
+                            знают ваше имя.</p>
+                    </div>
+
+                    <picture class="image-feature image-full">
+                        <source media="(min-width: 1024px)"
+                            srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1000&h=600&q=80">
+                        <source media="(min-width: 768px)"
+                            srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=768&h=500&q=80">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=360&h=300&q=80"
+                            alt="Вид на долину и вершины Glacier Peak на закате" loading="lazy" width="1000"
+                            height="600">
+                    </picture>
+                    <figcaption>Панорама долины на закате. Видны семь вершин, которые входят в маршруты начинающих
+                        лыжников.</figcaption>
+
+                    <div class="cards-row">
+                        <div class="info-card">
+                            <h4>Трансфер</h4>
+                            <p><strong>90 минут</strong> от аэропорта Шамони</p>
+                            <p>Организованный трансфер или аренда авто</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Высота поселения</h4>
+                            <p><strong>1800 м</strong> над уровнем моря</p>
+                            <p>Оптимально для акклиматизации</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Отели</h4>
+                            <p><strong>12 отелей</strong> от 3 до 5 звёзд</p>
+                            <p>Все в пешей доступности</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="chapter-2" class="chapter">
+                <header class="chapter-header">
+                    <h2 class="chapter-title">Трассы и уровни сложности</h2>
+                    <p class="chapter-subtitle">От мягких синих склонов для новичков до экстремальных чёрных маршрутов
+                        для асов</p>
+                </header>
+
+                <div class="chapter-content">
+                    <div class="text-block">
+                        <p>На Glacier Peak представлена уникальная топография: 142 трассы разных уровней, красиво
+                            распределённые по четырём основным зонам. Синие маршруты (38 трасс) идеальны для освоения
+                            базовой техники — пологие, широкие, с отличной видимостью. Красные маршруты (64 трассы) —
+                            это "золотая середина" для опытных горнолыжников, сочетающие скорость, технику и адреналин.
+                            Чёрные маршруты (32 трассы) требуют мастерства: крутые склоны, узкие проходы между скал,
+                            кулуары, где один неверный поворот может стоить дорого.</p>
+                        <p>Самая знаменитая трасса — "Шёлковый путь" (красная, 6.5 км) — спускается с вершины Pic Blanc,
+                            предоставляя панорамные виды на весь массив Монблана. Спуск занимает 45 минут неспешного
+                            катания с остановками для фотографий. Для экстремалов есть маршрут "Чёрный алмаз" (чёрная,
+                            3.2 км), где средний угол наклона достигает 38°, а снег требует идеальной техники и здравого
+                            ума.</p>
+                        <p>Система маркировки на Glacier Peak — одна из самых точных в Альпах. Каждая трасса регулярно
+                            инспектируется, опасные участки обозначены понятными знаками, а служба спасения оснащена
+                            новейшим оборудованием. Здесь вы катаетесь, полностью уверены в безопасности.</p>
+                    </div>
+
+                    <div class="image-grid">
+                        <picture class="grid-image">
+                            <source media="(min-width: 1024px)"
+                                srcset="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&h=400&q=80">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=360&h=300&q=80"
+                                alt="Горнолыжник на синей трассе" loading="lazy" width="500" height="400">
+                        </picture>
+                        <picture class="grid-image">
+                            <source media="(min-width: 1024px)"
+                                srcset="https://images.unsplash.com/photo-1455849318743-b2233fc3d430?auto=format&fit=crop&w=500&h=400&q=80">
+                            <img src="https://images.unsplash.com/photo-1455849318743-b2233fc3d430?auto=format&fit=crop&w=360&h=300&q=80"
+                                alt="Сноубордист на красной трассе" loading="lazy" width="500" height="400">
+                        </picture>
+                        <picture class="grid-image">
+                            <source media="(min-width: 1024px)"
+                                srcset="https://images.unsplash.com/photo-1516937379896-c2e6b43c6ba0?auto=format&fit=crop&w=500&h=400&q=80">
+                            <img src="https://images.unsplash.com/photo-1516937379896-c2e6b43c6ba0?auto=format&fit=crop&w=360&h=300&q=80"
+                                alt="Чёрная трасса с крутым спуском" loading="lazy" width="500" height="400">
+                        </picture>
+                    </div>
+
+                    <div class="cards-row">
+                        <div class="info-card">
+                            <h4>Синие трассы</h4>
+                            <p><strong>38</strong> маршрутов</p>
+                            <p>Идеально для новичков. Уклон 0–25%</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Красные трассы</h4>
+                            <p><strong>64</strong> маршрута</p>
+                            <p>Опытные горнолыжники. Уклон 25–40%</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Чёрные трассы</h4>
+                            <p><strong>32</strong> маршрута</p>
+                            <p>Экстремальное катание. Уклон 40%+</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Средняя длина</h4>
+                            <p><strong>4.7 км</strong></p>
+                            <p>От 1.5 км (синие) до 7.8 км (красные)</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="chapter-3" class="chapter">
+                <header class="chapter-header">
+                    <h2 class="chapter-title">Подъёмники и скорость</h2>
+                    <p class="chapter-subtitle">38 современных подъёмников доставят вас на любую высоту за минуты</p>
+                </header>
+
+                <div class="chapter-content">
+                    <div class="text-block">
+                        <p>Инфраструктура подъёмников Glacier Peak — это инженерный триумф. Три гондолы, девять
+                            кресельных подъёмников высокой скорости и 26 T-баров и буксировок распределены так, что
+                            очередь на подъём редко превышает 10 минут даже в пиковые выходные. Главная гондола "Альпа
+                            Экспресс" поднимает 160 человек за одну кабину, преодолевая высоту 1658 м всего за 22
+                            минуты.</p>
+                        <p>Каждый подъёмник оснащён современными системами безопасности, отопляемыми кабинами (в
+                            гондолах) или шкурами для защиты от ветра (в креслах). Во время подъёма вы не просто
+                            движетесь вверх — вы совершаете воздушное путешествие, видя под собой пройденные маршруты,
+                            альпийские деревни и, в ясные дни, пики Итальянских Альп на горизонте.</p>
+                        <p>Система билетов гибкая: купите абонемент на день, два дня, неделю или весь сезон. Мобильное
+                            приложение показывает точное время ожидания на каждом подъёмнике в реальном времени, и вы
+                            всегда знаете, где кататься самым комфортно. Электронный билет хранится в смартфоне —
+                            никаких физических карт, только технология будущего.</p>
+                    </div>
+
+                    <picture class="image-feature image-right">
+                        <source media="(min-width: 1024px)"
+                            srcset="https://images.unsplash.com/photo-1486432690881-cd92bb73b0dd?auto=format&fit=crop&w=600&h=500&q=80">
+                        <img src="https://images.unsplash.com/photo-1486432690881-cd92bb73b0dd?auto=format&fit=crop&w=360&h=300&q=80"
+                            alt="Кресельный подъёмник с видом на долину" loading="lazy" width="600" height="500">
+                    </picture>
+                    <figcaption>Гондола "Альпа Экспресс" во время утреннего подъёма. Видны все зоны катания.
+                    </figcaption>
+
+                    <div class="cards-row">
+                        <div class="info-card">
+                            <h4>Гондолы</h4>
+                            <p><strong>3</strong> современные гондолы</p>
+                            <p>По 160 человек в кабине. Скорость: 6 м/сек</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Креслы высокоскоростные</h4>
+                            <p><strong>9</strong> кресельных подъёмников</p>
+                            <p>По 6 человек. Без очередей</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>T-бары и буксировки</h4>
+                            <p><strong>26</strong> буксировочных систем</p>
+                            <p>Для местных и верхних склонов</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Макс. высота подъёма</h4>
+                            <p><strong>1658 м</strong></p>
+                            <p>За 22 минуты непрерывно</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="chapter-4" class="chapter">
+                <header class="chapter-header">
+                    <h2 class="chapter-title">Школа и прокат</h2>
+                    <p class="chapter-subtitle">От первого поворота до экстремального фристайла — обучение мирового
+                        уровня</p>
+                </header>
+
+                <div class="chapter-content">
+                    <div class="text-block">
+                        <p>Международная школа горнолыжного спорта Glacier Peak (IGSS) объединяет 120 сертифицированных
+                            инструкторов, говорящих на 18 языках. Методика обучения базируется на современных стандартах
+                            PSIA и ISIA, с особенным акцентом на безопасность и удовольствие от спорта. Групповые
+                            занятия (максимум 6 человек) стоят 89 EUR в день, частные уроки — от 150 EUR в час.</p>
+                        <p>Для детей существует специализированная программа "Snow Kids Academy" с игровым подходом:
+                            маленькие лыжники учатся катанию через квесты, соревнования и развлечения. Сезонные
+                            программы (4 недели по 3 дня) помогают ребёнку стать уверенным горнолыжником, который без
+                            страха спускается с красных трасс. Опытные инструкторы знают психологию детей и умеют
+                            создавать атмосферу, в которой обучение становится праздником.</p>
+                        <p>Прокат оборудования — на отдельном уровне. Современный парк из 1200+ комплектов лыж и
+                            сноубордов в прокатных центрах (3 локации по поселению) позволит вам выбрать снаряжение,
+                            идеально подходящее вашему стилю и уровню. Бесплатная смена оборудования, если сразу после
+                            первого спуска почувствуете, что выбрали не то.</p>
+                    </div>
+
+                    <picture class="image-feature image-left">
+                        <source media="(min-width: 1024px)"
+                            srcset="https://images.unsplash.com/photo-1536999090869-2372b56a3658?auto=format&fit=crop&w=600&h=500&q=80">
+                        <img src="https://images.unsplash.com/photo-1536999090869-2372b56a3658?auto=format&fit=crop&w=360&h=300&q=80"
+                            alt="Инструктор учит ребёнка горнолыжному спорту" loading="lazy" width="600" height="500">
+                    </picture>
+                    <figcaption>Занятие в группе новичков. Инструктор демонстрирует правильную стойку.</figcaption>
+
+                    <div class="cards-row">
+                        <div class="info-card">
+                            <h4>Инструкторы</h4>
+                            <p><strong>120</strong> международных инструкторов</p>
+                            <p>Сертификаты PSIA/ISIA, 18 языков</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Групповое занятие</h4>
+                            <p><strong>89 EUR</strong> в день</p>
+                            <p>Максимум 6 человек в группе</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Частный урок</h4>
+                            <p><strong>150 EUR</strong> в час</p>
+                            <p>Индивидуальный подход, гибкое расписание</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Прокат оборудования</h4>
+                            <p><strong>1200+</strong> комплектов</p>
+                            <p>Лыжи, доски, ботинки. Бесплатная смена</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="chapter-5" class="chapter">
+                <header class="chapter-header">
+                    <h2 class="chapter-title">Après-ski: рестораны, спа, вечер</h2>
+                    <p class="chapter-subtitle">После напряжённого дня на склонах — расслабление, гастрономия и
+                        развлечения мирового уровня</p>
+                </header>
+
+                <div class="chapter-content">
+                    <div class="text-block">
+                        <p>Après-ski на Glacier Peak — это не просто отдых, это искусство наслаждения. Когда солнце
+                            скрывается за вершинами и склоны пустеют, поселение просыпается для вечера. На центральной
+                            площади La Fontaine льётся горячий глинтвейн (7.50 EUR за кружку), звучит живая музыка, и
+                            люди в красных и синих горнолыжных костюмах танцуют прямо в снегу, не раздеваясь.</p>
+                        <p>В ресторане "L'Aigle Blanc" ("Белый орёл") подают альпийскую кухню: раклет, фондю, творог с
+                            зелью, стейк из местного быка. Шеф-повар Жан-Пьер выигрывал награды на международных
+                            конкурсах. Цены соответствуют уровню: обед на двоих с вином — 150–200 EUR. В спа-комплексе
+                            "Mont Blanc Thermal" ждут вас горячие бассейны (38–42°C), сауны, парные и массажи от
+                            мастеров тайского искусства — 45 минут релаксации за 85 EUR.</p>
+                        <p>Вечерняя жизнь разворачивается в барах "Powder Room" и "The Lodge": коктейли в спорт-баре,
+                            кино, караоке, ночные дискотеки с DJ из Лондона. Ночь заканчивается не раньше, чем всходит
+                            солнце над Монбланом, но аккуратные лыжники просыпаются к 8 утра для утреннего катания на
+                            пустых трассах.</p>
+                    </div>
+
+                    <picture class="image-feature image-full">
+                        <source media="(min-width: 1024px)"
+                            srcset="https://images.unsplash.com/photo-1514432324607-2e467f4af3fb?auto=format&fit=crop&w=1000&h=600&q=80">
+                        <img src="https://images.unsplash.com/photo-1514432324607-2e467f4af3fb?auto=format&fit=crop&w=360&h=300&q=80"
+                            alt="Уютный бар в вечернее время на горнолыжном курорте" loading="lazy" width="1000"
+                            height="600">
+                    </picture>
+                    <figcaption>Ресторан "L'Aigle Blanc" вечером. Огни деревни отражаются в снегу.</figcaption>
+
+                    <div class="cards-row">
+                        <div class="info-card">
+                            <h4>Рестораны</h4>
+                            <p><strong>18</strong> точек питания</p>
+                            <p>От уличной еды до 2-звёздной кухни</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Спа и термальные ванны</h4>
+                            <p><strong>45 мин</strong> массажа</p>
+                            <p>85 EUR. Горячие бассейны, сауны</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Бары и клубы</h4>
+                            <p><strong>8</strong> вечерних заведений</p>
+                            <p>Коктейли, музыка, танцы до утра</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Развлечения</h4>
+                            <p><strong>Кино, караоке, конкурсы</strong></p>
+                            <p>Программа каждый вечер</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="chapter-6" class="chapter">
+                <header class="chapter-header">
+                    <h2 class="chapter-title">Проживание: отели и шале</h2>
+                    <p class="chapter-subtitle">От семейных гостиниц до роскошных частных вилл на склоне</p>
+                </header>
+
+                <div class="chapter-content">
+                    <div class="text-block">
+                        <p>Glacier Peak предлагает 12 отелей разных уровней. Флагманский "Mont Blanc Palace" (5 звёзд,
+                            450 EUR/ночь) расположен в центре, оснащён панорамным рестораном с видом на вершины и 500 м²
+                            спа. "Le Refuge Alpin" (3 звёзды, 120 EUR/ночь) — уютная семейная гостиница с камином,
+                            домашней едой и советами от владельца, который 30 лет катается на горнолыжном курорте.</p>
+                        <p>Для большой семьи или компании идеальны частные шале (деревянные альпийские виллы): от 200 до
+                            800 EUR в ночь в зависимости от размера и локации. Шале оснащены полностью: кухня, камины,
+                            джакузи на террасе с видом на пики, гараж для машин. Администратор поселения помогает с
+                            организацией няни, повара, гида для внесеклонного времени.</p>
+                        <p>Апартаменты (квартиры на сутки) разбросаны по всему поселению: от скромных студий (85 EUR) до
+                            люксовых пентхаусов (650 EUR). Все жилые помещения размещены в пешей доступности от
+                            подъёмников и ресторанов — здесь никто не ездит на машине между домом и склоном.</p>
+                    </div>
+
+                    <div class="image-grid">
+                        <picture class="grid-image">
+                            <source media="(min-width: 1024px)"
+                                srcset="https://images.unsplash.com/photo-1531142277992-c8e6d3b89a89?auto=format&fit=crop&w=500&h=400&q=80">
+                            <img src="https://images.unsplash.com/photo-1531142277992-c8e6d3b89a89?auto=format&fit=crop&w=360&h=300&q=80"
+                                alt="Люксовый отель Mont Blanc Palace с панорамным видом" loading="lazy" width="500"
+                                height="400">
+                        </picture>
+                        <picture class="grid-image">
+                            <source media="(min-width: 1024px)"
+                                srcset="https://images.unsplash.com/photo-1521854041915-27cf176b27c4?auto=format&fit=crop&w=500&h=400&q=80">
+                            <img src="https://images.unsplash.com/photo-1521854041915-27cf176b27c4?auto=format&fit=crop&w=360&h=300&q=80"
+                                alt="Коттедж-шале в деревне среди гор" loading="lazy" width="500" height="400">
+                        </picture>
+                        <picture class="grid-image">
+                            <source media="(min-width: 1024px)"
+                                srcset="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&h=400&q=80">
+                            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=360&h=300&q=80"
+                                alt="Апартаменты с современным интерьером и видом на горы" loading="lazy" width="500"
+                                height="400">
+                        </picture>
+                    </div>
+
+                    <div class="cards-row">
+                        <div class="info-card">
+                            <h4>5-звёздные отели</h4>
+                            <p><strong>450 EUR</strong> за ночь</p>
+                            <p>"Mont Blanc Palace". Спа, ресторан, панорамный вид</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>3-звёздные отели</h4>
+                            <p><strong>120 EUR</strong> за ночь</p>
+                            <p>"Le Refuge Alpin". Семейные, с камином</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Частные шале</h4>
+                            <p><strong>200–800 EUR</strong> за ночь</p>
+                            <p>Полная кухня, джакузи, гараж</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Апартаменты</h4>
+                            <p><strong>85–650 EUR</strong> за ночь</p>
+                            <p>От студий до люксовых пентхаусов</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="chapter-7" class="chapter">
+                <header class="chapter-header">
+                    <h2 class="chapter-title">Маршруты на 1, 2 и 3 дня</h2>
+                    <p class="chapter-subtitle">Как организовать идеальный отпуск — планы для разного времени</p>
+                </header>
+
+                <div class="chapter-content">
+                    <div class="text-block">
+                        <p><strong>Выходной день (1 день):</strong> Приезжаете в пятницу вечером, утром берёте групповой
+                            урок (2 часа), затем самостоятельное катание по синим трассам (3 часа), обед в уличном кафе,
+                            сноутюбинг для детей или посещение спа, вечер в баре "The Lodge". Вечерний рейс — и вы дома.
+                            Стоимость: 350–500 EUR на человека (ски-пасс, урок, еда).</p>
+                        <p><strong>Выходные (2–3 дня):</strong> День первый — приезд, прогулка по деревне, знакомство.
+                            День второй — полный день на склонах: утро на синих/красных трассах (завтрак на высоте в
+                            горном кафе), день на красных трассах, вечер в спа и ресторане. День третий — подъём на
+                            вершину Pic Blanc, спуск по маршруту "Шёлковый путь", прощальный обед, отъезд. Стоимость:
+                            800–1200 EUR на человека за выходные.</p>
+                        <p><strong>Неделя (7 дней):</strong> Идеально для обучения. День 1–2: уроки, адаптация. День
+                            3–5: интенсивное катание, постепенное увеличение сложности. День 6: попытка чёрной трассы
+                            или фристайл-парка. День 7: свободное катание, закрепление навыков, покупка сувениров.
+                            Вечера: каждый день что-то новое — спа, рестораны, бары, ночной клуб. Стоимость: 2500–3500
+                            EUR за человека (проживание 6 ночей, питание, развлечения).</p>
+                    </div>
+
+                    <picture class="image-feature image-right">
+                        <source media="(min-width: 1024px)"
+                            srcset="https://images.unsplash.com/photo-1462332420958-a05d1e741341?auto=format&fit=crop&w=600&h=500&q=80">
+                        <img src="https://images.unsplash.com/photo-1462332420958-a05d1e741341?auto=format&fit=crop&w=360&h=300&q=80"
+                            alt="Семья на горнолыжном курорте, вид на вершину в закате" loading="lazy" width="600"
+                            height="500">
+                    </picture>
+                    <figcaption>Вид на закате с вершины Pic Blanc. Идеальный момент для фото в конце дня.</figcaption>
+
+                    <div class="cards-row">
+                        <div class="info-card">
+                            <h4>1 день</h4>
+                            <p><strong>350–500 EUR</strong> на человека</p>
+                            <p>Урок, катание, спа, вечер</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>2–3 дня</h4>
+                            <p><strong>800–1200 EUR</strong> на человека</p>
+                            <p>Полное катание, обучение, развлечения</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>7 дней</h4>
+                            <p><strong>2500–3500 EUR</strong> за человека</p>
+                            <p>Проживание, питание, все включено</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Сезонный абонемент</h4>
+                            <p><strong>1200 EUR</strong></p>
+                            <p>Неограниченный доступ весь сезон</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article id="chapter-8" class="chapter">
+                <header class="chapter-header">
+                    <h2 class="chapter-title">Как добраться и контакты</h2>
+                    <p class="chapter-subtitle">Все информацию для организации вашего путешествия на Glacier Peak</p>
+                </header>
+
+                <div class="chapter-content">
+                    <div class="text-block">
+                        <p><strong>На самолёте:</strong> Ближайший крупный аэропорт — Geneva Cointrin (100 км от
+                            курорта). Рейсы из Москвы (Aeroflot, Air France) — 4–5 часов, стоимость 200–500 EUR
+                            туда-обратно в зависимости от сезона. Из аэропорта трансфер на машине 90 минут (50 EUR), на
+                            поезде — 2 часа (28 EUR, железная дорога к подножию курорта).</p>
+                        <p><strong>На поезде:</strong> Из Лиона (метро до Chamonix) или Цюриха (прямой рейс) — комфортно
+                            и экологично. Последний участок — местный поезд до подножия, затем канатная дорога в
+                            поселение. Общее время 6–8 часов, стоимость 40–70 EUR.</p>
+                        <p><strong>На машине:</strong> Если вы едете из Франции или Швейцарии, автотрасса A40 в
+                            направлении Chamonix. Парковка в поселении бесплатна для гостей отелей, 8 EUR в день для
+                            приезжих (или припаркуйте внизу, бесплатная канатная дорога поднимает туристов каждые 15
+                            минут).</p>
+                    </div>
+
+                    <div class="contact-block">
+                        <h3>Основная информация</h3>
+                        <div class="contact-info">
+                            <p><strong>Адрес:</strong> Glacier Peak Ski Resort, Route de la Vallée 42, 74400 Chamonix,
+                                France</p>
+                            <p><strong>Телефон:</strong> +33 (0)4 50 53 00 88</p>
+                            <p><strong>Email:</strong> info@glacierpeak.com</p>
+                            <p><strong>Веб-сайт:</strong> www.glacierpeak.com</p>
+                            <p><strong>Горячая линия 24/7:</strong> +33 (0)4 50 53 01 01</p>
+                        </div>
+
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook" title="Facebook">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.991 22 12z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Instagram" title="Instagram">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.204 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163C8.756 0 8.333.012 7.053.07 2.695.262.273 2.686.082 7.053.012 8.333 0 8.756 0 12c0 3.244.011 3.668.082 4.947.19 4.367 2.612 6.789 6.979 6.979 1.281.07 1.704.082 4.947.082 3.242 0 3.668-.012 4.947-.082 4.379-.19 6.8-2.62 6.979-6.979.07-1.281.082-1.704.082-4.947 0-3.244-.011-3.667-.082-4.947-.19-4.367-2.612-6.787-6.979-6.979C15.668.012 15.244 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="YouTube" title="YouTube">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                                </svg>
+                            </a>
+                            <a href="#" aria-label="Twitter" title="Twitter">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path
+                                        d="M23.953 4.57a10 10 0 002.856-3.215 9.954 9.954 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="cards-row">
+                        <div class="info-card">
+                            <h4>Аэропорт</h4>
+                            <p><strong>Geneva Cointrin</strong></p>
+                            <p>100 км, трансфер 90 мин</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Поезд</h4>
+                            <p><strong>Из Цюриха/Лиона</strong></p>
+                            <p>6–8 часов, комфортно</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Машина</h4>
+                            <p><strong>A40 к Chamonix</strong></p>
+                            <p>Парковка бесплатна для гостей</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Виза</h4>
+                            <p><strong>Шенген</strong></p>
+                            <p>Нужна для граждан России</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <section id="gallery" class="gallery-section">
+        <h2>Лучшие моменты</h2>
+        <p class="gallery-subtitle">Вдохновляющие снимки, которые говорят о духе Glacier Peak</p>
+        <div class="gallery-scroll">
+            <div class="gallery-item">
+                <picture>
+                    <source media="(min-width: 1024px)"
+                        srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&h=300&q=80">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=300&h=300&q=80"
+                        alt="Панорама вершин" loading="lazy" width="400" height="300">
+                </picture>
+            </div>
+            <div class="gallery-item">
+                <picture>
+                    <source media="(min-width: 1024px)"
+                        srcset="https://images.unsplash.com/photo-1455849318743-b2233fc3d430?auto=format&fit=crop&w=400&h=300&q=80">
+                    <img src="https://images.unsplash.com/photo-1455849318743-b2233fc3d430?auto=format&fit=crop&w=300&h=300&q=80"
+                        alt="Сноубордист в действии" loading="lazy" width="400" height="300">
+                </picture>
+            </div>
+            <div class="gallery-item">
+                <picture>
+                    <source media="(min-width: 1024px)"
+                        srcset="https://images.unsplash.com/photo-1516937379896-c2e6b43c6ba0?auto=format&fit=crop&w=400&h=300&q=80">
+                    <img src="https://images.unsplash.com/photo-1516937379896-c2e6b43c6ba0?auto=format&fit=crop&w=300&h=300&q=80"
+                        alt="Экстремальный спуск" loading="lazy" width="400" height="300">
+                </picture>
+            </div>
+            <div class="gallery-item">
+                <picture>
+                    <source media="(min-width: 1024px)"
+                        srcset="https://images.unsplash.com/photo-1486432690881-cd92bb73b0dd?auto=format&fit=crop&w=400&h=300&q=80">
+                    <img src="https://images.unsplash.com/photo-1486432690881-cd92bb73b0dd?auto=format&fit=crop&w=300&h=300&q=80"
+                        alt="Подъём на вершину" loading="lazy" width="400" height="300">
+                </picture>
+            </div>
+            <div class="gallery-item">
+                <picture>
+                    <source media="(min-width: 1024px)"
+                        srcset="https://images.unsplash.com/photo-1536999090869-2372b56a3658?auto=format&fit=crop&w=400&h=300&q=80">
+                    <img src="https://images.unsplash.com/photo-1536999090869-2372b56a3658?auto=format&fit=crop&w=300&h=300&q=80"
+                        alt="Обучение катанию" loading="lazy" width="400" height="300">
+                </picture>
+            </div>
+            <div class="gallery-item">
+                <picture>
+                    <source media="(min-width: 1024px)"
+                        srcset="https://images.unsplash.com/photo-1514432324607-2e467f4af3fb?auto=format&fit=crop&w=400&h=300&q=80">
+                    <img src="https://images.unsplash.com/photo-1514432324607-2e467f4af3fb?auto=format&fit=crop&w=300&h=300&q=80"
+                        alt="Апре-ски в баре" loading="lazy" width="400" height="300">
+                </picture>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <h2>Часто задаваемые вопросы</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Какой лучший сезон для посещения Glacier Peak?</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="faq-answer" hidden>
+                    <p>Сезон Glacier Peak длится с декабря по апрель, но пик приходится на январь и февраль, когда
+                        гарантирован лучший снег. Март и апрель отлично подходят для семей с детьми благодаря более
+                        мягкой погоде и длинным светлым дням. Декабрь идеален для избегания толп и гедонистического
+                        начала сезона.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Нужна ли виза для граждан России?</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="faq-answer" hidden>
+                    <p>Да, граждане России нуждаются в Шенгенской визе для въезда во Францию. Процесс визы занимает 5–15
+                        дней. Мы можем помочь с документацией и рекомендациями консульства.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Какой минимальный уровень навыков для катания?</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="faq-answer" hidden>
+                    <p>Абсолютные новичники могут начать обучение в Glacier Peak! Наша программа "Beginner's Paradise"
+                        рассчитана на людей без опыта. За 3 дня вы научитесь базовым техникам и сможете кататься по
+                        синим трассам самостоятельно.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Безопасно ли ездить с детьми?</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="faq-answer" hidden>
+                    <p>Glacier Peak — один из самых безопасных курортов Европы для детей. Трассы регулярно
+                        инспектируются, служба спасения оснащена современным оборудованием, а инструкторы
+                        специализируются на детском обучении. Ребёнок в возрасте 3+ лет может начать учиться катанию.
+                    </p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Какова средняя цена недельного пакета?</span>
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                        <path d="M6 8l4 4 4-4" stroke="currentColor" stroke-width="2" />
+                    </svg>
+                </button>
+                <div class="faq-answer" hidden>
+                    <p>Неделя на Glacier Peak стоит в среднем 2500–3500 EUR на человека (проживание в 3–4-звёздном
+                        отеле, питание, ски-пасс, развлечения). Это включает базовую программу. Люксовые варианты (спа,
+                        частные уроки, шале) могут быть дороже.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ski-game" class="ski-game-section">
+        <h2>Проверьте свои навыки</h2>
+        <p class="game-subtitle">Мини-игра: спуститесь на лыжах с гор Glacier Peak</p>
+
+        <div class="game-container">
+            <!-- ВАЖНО: это canvas, иначе JS падает на getContext -->
+            <canvas id="gameCanvas" class="game-canvas" aria-label="Мини-игра: лыжный спуск"></canvas>
+            <div class="game-controls">
+                <p id="gameScore">Очки: 0</p>
+                <p id="gameStatus">Используйте мышь или сенсор для управления</p>
+                <button id="gameStart" class="btn btn-primary">Начать игру</button>
+            </div>
+        </div>
+    </section>
+
+    <button id="backToTop" class="back-to-top" aria-label="Вернуться в начало">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 5v14m0 0l-7-7m7 7l7-7" stroke="currentColor" stroke-width="2" />
+        </svg>
+    </button>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Glacier Peak Ski Resort</h4>
+                <p>Премиальный горнолыжный курорт в сердце Альп. Лучшие трассы, отели и апре-ски опыт.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <p>📍 Route de la Vallée 42, Chamonix, France</p>
+                <p>📞 +33 (0)4 50 53 00 88</p>
+                <p>📧 info@glacierpeak.com</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>Быстрые ссылки</h4>
+                <ul>
+                    <li><a href="#chapter-2">Трассы</a></li>
+                    <li><a href="#chapter-4">Школа</a></li>
+                    <li><a href="#chapter-5">Апре-ски</a></li>
+                    <li><a href="#chapter-6">Проживание</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Следите за нами</h4>
+                <div class="social-footer">
+                    <a href="#" aria-label="Facebook">f</a>
+                    <a href="#" aria-label="Instagram">📷</a>
+                    <a href="#" aria-label="YouTube">▶️</a>
+                    <a href="#" aria-label="Twitter">𝕏</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Glacier Peak Ski Resort. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Условия использования</a>
+                <a href="#">Карта сайта</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="skiPassModal" class="modal" hidden tabindex="-1" role="dialog" aria-modal="true" aria-label="Ски-пасс">
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Закрыть">×</button>
+            <h2>Ски-пасс на Glacier Peak</h2>
+            <div class="modal-body">
+                <div class="pass-option">
+                    <h3>1 день</h3>
+                    <p class="price">79 EUR</p>
+                    <p>Неограниченный доступ на один день</p>
+                    <button class="btn btn-small">Купить</button>
+                </div>
+                <div class="pass-option">
+                    <h3>3 дня</h3>
+                    <p class="price">189 EUR</p>
+                    <p>3 дня в течение 7 дней</p>
+                    <button class="btn btn-small">Купить</button>
+                </div>
+                <div class="pass-option">
+                    <h3>7 дней</h3>
+                    <p class="price">389 EUR</p>
+                    <p>Полная неделя катания</p>
+                    <button class="btn btn-small">Купить</button>
+                </div>
+                <div class="pass-option">
+                    <h3>Сезон</h3>
+                    <p class="price">1200 EUR</p>
+                    <p>Неограниченный доступ весь сезон</p>
+                    <button class="btn btn-small">Купить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="page projects-section" id="projects" aria-label="Живой репортаж — материалы">
+        <div class="projects-inner container">
+            <div class="section-header">
+                <h2 class="section-title text-pr">Живой репортаж — материалы</h2>
+            </div>
+
+            <div class="projects-viewport" data-autoplay="true" data-interval="5000">
+                <div class="projects-stage">
+                    <a href="https://www.sb.by/sp/simvol-sily-i-krasoty/" class="project-card">
+                        <img src="./assets/img/projects/hero1.jpg" loading="lazy" alt="Символ 2026 года" />
+                        <div class="project-info">
+                            <h3>Символ силы и красоты</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.sb.by/sp/kak-zhivet-samyj-vysokij-futbolist-mira/"
+                        class="project-card is-active">
+                        <img src="./assets/img/projects/hero.jpg" loading="lazy" alt="Футболист" />
+                        <div class="project-info">
+                            <h3>210 сантиметров над уровнем поля</h3>
+                        </div>
+                    </a>
+
+                    <a href="https://www.sb.by/sp/legko-li-sobirat-konfetnye-podarki/" class="project-card is-active">
+                        <img src="./assets/img/projects/hero-bg.jpg" loading="lazy" alt="Полярники" />
+                        <div class="project-info">
+                            <h3>Легко ли собирать конфетные подарки?</h3>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="projects-controls">
+                    <button class="pr-btn prev" aria-label="Назад">◀</button>
+                    <div class="pr-dots" aria-hidden="true"></div>
+                    <button class="pr-btn next" aria-label="Вперед">▶</button>
+                </div>
+            </div>
+
+            <div class="projects-footer">
+                <a href="https://www.sb.by/articles/themes/spetsproekt-sb-nash-zhivoy-reportazh/"
+                    class="btn-all-projects">
+                    Смотреть все материалы
+                </a>
+            </div>
+        </div>
+
+        <footer class="site-footer">
+            <div class="footer-credits">
+                <p>Автор: <strong>Александр НЕСТЕРОВ</strong></p>
+
+            </div>
+
+            <hr class="footer-divider" />
+
+            <div class="footer-copy">© Издательский дом «Беларусь сегодня»</div>
+        </footer>
+    </section>
+
+    <div id="lightbox" class="lightbox" hidden aria-label="Просмотр фото">
+        <button class="lightbox-close" aria-label="Закрыть">×</button>
+        <button class="lightbox-prev" aria-label="Предыдущее фото">❮</button>
+        <img id="lightboxImage" src="" alt="">
+        <button class="lightbox-next" aria-label="Следующее фото">❯</button>
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            setTimeout(loadYandexMetrika, 3000);
+            setTimeout(loadGTM, 4000);
+        });
+
+        function loadYandexMetrika() {
+            (function (m, e, t, r, i, k, a) {
+                m[i] =
+                    m[i] ||
+                    function () {
+                        (m[i].a = m[i].a || []).push(arguments);
+                    };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) {
+                    if (document.scripts[j].src === r) return;
+                }
+                (k = e.createElement(t)),
+                    (a = e.getElementsByTagName(t)[0]),
+                    (k.async = 1),
+                    (k.src = r),
+                    a.parentNode.insertBefore(k, a);
+            })(
+                window,
+                document,
+                "script",
+                "https://mc.yandex.ru/metrika/tag.js",
+                "ym"
+            );
+            ym(16707172, "init", {
+                webvisor: true,
+                clickmap: true,
+                accurateTrackBounce: true,
+                trackLinks: true,
+            });
+        }
+
+        function loadGTM() {
+            (function (w, d, s, l, i) {
+                w[l] = w[l] || [];
+                w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+                var f = d.getElementsByTagName(s)[0],
+                    j = d.createElement(s),
+                    dl = l != "dataLayer" ? "&l=" + l : "";
+                j.async = true;
+                j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+                f.parentNode.insertBefore(j, f);
+            })(window, document, "script", "dataLayer", "GTM-KRVNNK");
+        }
+    </script>
+</body>
+
+</html>
