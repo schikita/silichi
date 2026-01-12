@@ -1,869 +1,576 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Силичи горнолыжный комплекс" />
-    <title>Что происходит сейчас в горнолыжных центрах? | ЖИВОЙ РЕПОРТАЖ</title>
 
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://source.unsplash.com" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Силичи горнолыжный комплекс" />
+  <title>Что происходит сейчас в горнолыжных центрах? | ЖИВОЙ РЕПОРТАЖ</title>
 
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link
-      rel="shortcut icon"
-      href="./assets/favicon/favicon.png"
-      type="image/x-icon"
-    />
-  </head>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://source.unsplash.com" />
 
-  <body>
-    <div class="snow-animation" aria-hidden="true">
-      <div class="snow"></div>
-    </div>
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="shortcut icon" href="./assets/favicon/favicon.png" type="image/x-icon" />
+</head>
 
-    <div class="scroll-progress" aria-hidden="true"></div>
+<body>
+  <div class="snow-animation" aria-hidden="true">
+    <div class="snow"></div>
+  </div>
 
-    <header class="header">
-      <div class="header-container">
-        <div class="logo">
-          <a
-            href="https://www.sb.by/"
-            class="logo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="./assets/img/logo.png"
-              loading="lazy"
-              alt="Логотип SB.BY"
-              width="44"
-              height="44"
-            />
-            <span class="logo-text">SB.BY</span>
-          </a>
-        </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
-        <nav class="nav-desktop" aria-label="Основная навигация">
-          <a class="nav-link" href="#chapter-1">Посетителей много?</a>
-          <a class="nav-link" href="#chapter-2">Стоимость</a>
-          <a class="nav-link" href="#chapter-3">Какие трассы работают?</a>
-
-
-        <button
-          class="nav-toggle"
-          aria-label="Открыть меню"
-          aria-expanded="false"
-          aria-controls="mobileNav"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </header>
-
-    <nav class="nav-mobile" id="mobileNav" aria-label="Мобильная навигация">
-      <a class="nav-link" href="#chapter-1">Посетителей — много?</a>
-      <a class="nav-link" href="#chapter-2">Стоимость</a>
-      <a class="nav-link" href="#chapter-3">Какие трассы работают?</a>
-
-    </nav>
-
-    <section class="hero" id="top">
-      <div class="hero-bg hero-bg-slider" aria-hidden="true" data-hero-slider>
-        <div
-          class="hero-slide active"
-          style="background-image: url('./assets/img/hero.jpg')"
-        ></div>
-        <div
-          class="hero-slide"
-          style="background-image: url('./assets/img/people.jpg')"
-        ></div>
-        <div
-          class="hero-slide"
-          style="background-image: url('./assets/img/projects/hero-bg.jpg')"
-        ></div>
-      </div>
-
-      <div class="hero-overlay" aria-hidden="true"></div>
-
-      <div class="hero-content">
-        <h1 class="hero-title">Море снега — крутые трассы!</h1>
-        <p class="hero-tagline">
-          Какая обстановка в эти снежные дни царит в белорусском горнолыжном
-          центре «Силичи»?
-        </p>
-
-        <a href="#chapter-1" class="hero-cta">
-          <span class="btn btn-primary">СМОТРЕТЬ РЕПОРТАЖ</span>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">
+        <a href="https://www.sb.by/" class="logo" target="_blank" rel="noopener noreferrer">
+          <img src="./assets/img/logo.png" loading="lazy" alt="Логотип SB.BY" width="44" height="44" />
+          <span class="logo-text">SB.BY</span>
         </a>
       </div>
 
+      <nav class="nav-desktop" aria-label="Основная навигация">
+        <a class="nav-link" href="#chapter-1">Посетителей много?</a>
+        <a class="nav-link" href="#chapter-2">Стоимость</a>
+        <a class="nav-link" href="#chapter-3">Какие трассы работают?</a>
 
+      </nav>
+
+
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileNav">
         <span></span>
-      </div>
-    </section>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
 
-    <section
-      class="section section--padded"
-      id="highlights"
-      data-bg="./assets/img/projects/hero1.jpg"
-    >
-      <div class="container">
-        <h2 class="section-title">Впечатления дня</h2>
-        <p class="section-subtitle section-subtitle--onbg">
-          Короткая «кинолента» атмосферы: свет, скорость, снег, люди.
-        </p>
+  <nav class="nav-mobile" id="mobileNav" aria-label="Мобильная навигация">
+    <a class="nav-link" href="#chapter-1">Посетителей — много?</a>
+    <a class="nav-link" href="#chapter-2">Стоимость</a>
+    <a class="nav-link" href="#chapter-3">Какие трассы работают?</a>
 
-        <div class="slider" data-slider="highlights">
-          <div class="slider-viewport">
-            <div class="slider-track">
-              <div class="slider-slide">
-                <img
-                  src="https://source.unsplash.com/1600x900/?ski,resort,snow&sig=101"
-                  alt="Склон и свет"
-                  loading="lazy"
-                  decoding="async"
-                  width="1600"
-                  height="900"
-                />
-              </div>
-              <div class="slider-slide">
-                <img
-                  src="https://source.unsplash.com/1600x900/?snow,mountain,ski&sig=102"
-                  alt="Горный рельеф"
-                  loading="lazy"
-                  decoding="async"
-                  width="1600"
-                  height="900"
-                />
-              </div>
-              <div class="slider-slide">
-                <img
-                  src="https://source.unsplash.com/1600x900/?skiing,people,snow&sig=103"
-                  alt="Люди на курорте"
-                  loading="lazy"
-                  decoding="async"
-                  width="1600"
-                  height="900"
-                />
-              </div>
-              <div class="slider-slide">
-                <img
-                  src="https://source.unsplash.com/1600x900/?winter,lights,resort&sig=104"
-                  alt="Вечерняя атмосфера"
-                  loading="lazy"
-                  decoding="async"
-                  width="1600"
-                  height="900"
-                />
-              </div>
-              <div class="slider-slide">
-                <img
-                  src="https://source.unsplash.com/1600x900/?snowboard,action,winter&sig=105"
-                  alt="Движение и скорость"
-                  loading="lazy"
-                  decoding="async"
-                  width="1600"
-                  height="900"
-                />
-              </div>
-            </div>
-          </div>
+  </nav>
 
-          <button
-            class="slider-btn prev"
-            type="button"
-            aria-label="Предыдущий слайд"
-          >
-            ❮
-          </button>
-          <button
-            class="slider-btn next"
-            type="button"
-            aria-label="Следующий слайд"
-          >
-            ❯
-          </button>
-
-          <div class="slider-dots" aria-hidden="true"></div>
-        </div>
-      </div>
-    </section>
-
-    <div class="layout">
-      <aside class="sidebar-nav" aria-label="Содержание">
-        <nav class="contents">
-          <h3>Содержание</h3>
-          <ol>
-            <li>
-              <a href="#chapter-1" data-chapter="1">Посетителей — много?</a>
-            </li>
-            <li><a href="#chapter-2" data-chapter="2">Стоимость</a></li>
-            <li>
-              <a href="#chapter-3" data-chapter="3">Какие трассы работают?</a>
-            </li>
-          </ol>
-        </nav>
-      </aside>
-
-      <main class="main-content">
-        <article
-          id="chapter-1"
-          class="chapter"
-          data-bg="./assets/img/people.jpg"
-        >
-          <header class="chapter-header">
-            <h2 class="chapter-title">Посетителей — много?</h2>
-            <p class="chapter-lead">
-              Даже в будний день курорт живёт на полной мощности: парковка
-              заполнена, на подъёмниках очередь, а в кафе — шумно и уютно.
-            </p>
-          </header>
-
-          <div class="chapter-content">
-            <div class="text-block">
-              <p>
-                Мы отправились сюда в будний день накануне выхода номера.
-                Признаться, немного переживали, что в полной мере передать
-                царящую на склонах атмосферу не удастся, ведь, кажется, многие
-                на работе. Но уже на подъезде стало понятно, что без атмосферных
-                кадров не останемся: парковка настолько заставлена машинами
-                посетителей, что нам пришлось покружить в поисках свободного
-                места.
-              </p>
-
-              <div class="quote-layout">
-                <div class="quote-text">
-                  <p>
-                    На склонах — привычная «живая» картина: новички осваивают
-                    базовые дуги, более уверенные лыжники уходят на длинные
-                    маршруты, а инструкторы спокойно отрабатывают технику с
-                    группами. Впечатление такое, будто сезон в самом разгаре.
-                  </p>
-                </div>
-
-                <aside class="quote-card" aria-label="Прямая речь">
-                  <blockquote class="quote">
-                    <p>
-                      «В будни особенно видно, насколько грамотно устроена
-                      логистика: поток распределён, очереди не давят, а курорт
-                      при этом реально живёт».
-                    </p>
-                  </blockquote>
-                </aside>
-              </div>
-
-              <p>
-                При этом хаоса нет: очереди распределяются равномерно, зона
-                проката работает быстро, а навигация по территории понятна даже
-                тем, кто приехал впервые.
-              </p>
-            </div>
-
-            <figure class="feature">
-              <picture class="feature-media">
-                <source
-                  media="(min-width: 1024px)"
-                  srcset="./assets/img/people.jpg"
-                />
-                <source
-                  media="(min-width: 768px)"
-                  srcset="./assets/img/people.jpg"
-                />
-                <img
-                  src="./assets/img/people.jpg"
-                  alt="Курорт и гости"
-                  loading="lazy"
-                  width="1400"
-                  height="840"
-                />
-              </picture>
-              <figcaption class="feature-caption"></figcaption>
-            </figure>
-
-            <section
-              class="mini-collage-wrap"
-              aria-label="Мини-коллаж атмосферы"
-            >
-              <div class="mini-collage" data-mini-collage>
-                <button
-                  class="mini-collage__item is-a"
-                  type="button"
-                  aria-label="Открыть фото"
-                ></button>
-                <button
-                  class="mini-collage__item is-b"
-                  type="button"
-                  aria-label="Открыть фото"
-                ></button>
-                <button
-                  class="mini-collage__item is-c"
-                  type="button"
-                  aria-label="Открыть фото"
-                ></button>
-                <button
-                  class="mini-collage__item is-d"
-                  type="button"
-                  aria-label="Открыть фото"
-                ></button>
-                <button
-                  class="mini-collage__item is-e"
-                  type="button"
-                  aria-label="Открыть фото"
-                ></button>
-              </div>
-              <div class="mini-collage__caption">
-                Несколько деталей, которые держат «живую» картинку сезона.
-              </div>
-            </section>
-
-            <section class="text-block" aria-label="История посетителей">
-              <p>
-                Среди катающихся на учебном склоне — гомельчанин Андрей Титович
-                со спутницей Татьяной. Мужчина уже опытный лыжник, а девушка
-                только постигает азы спорта и учится чувствовать скорость,
-                баланс и уверенность на спуске.
-              </p>
-
-              <div class="quote-layout">
-                <div class="quote-text">
-                  <p>
-                    Татьяна признаётся, что первые попытки даются непросто:
-                    страх, напряжение и желание «сойти с дистанции» периодически
-                    накрывают, особенно перед очередным заходом на склон.
-                  </p>
-                  <p>
-                    Но Андрей рядом — шутит, подбадривает и помогает собраться.
-                    Пока она собирает волю в кулак, он спокойно объясняет
-                    базовые вещи и напоминает: здесь важнее не скорость, а
-                    контроль и техника.
-                  </p>
-                </div>
-
-                <aside class="quote-card" aria-label="Прямая речь">
-                  <blockquote class="quote">
-                    <p>
-                      «И страшно, и сложно. Порой хочется все бросить и уехать,
-                      но мы не сдаемся. Главная задача — не повиснуть на сосне.
-                      Если к вечеру руки, ноги будут целы, значит, день прошел
-                      не зря».
-                    </p>
-                  </blockquote>
-                </aside>
-              </div>
-
-              <p>
-                В таких историях — весь характер зимнего сезона: кто-то
-                приезжает за скоростью и длинными маршрутами, а кто-то — за
-                первым уверенным спуском, который запоминается не меньше.
-              </p>
-            </section>
-          </div>
-        </article>
-
-        <section
-          class="text-block text-block--standalone"
-          aria-label="История посетителей из России"
-          data-bg="./assets/img/projects/hero.jpg"
-        >
-          <h3>«Учебный склон — не страшно, он лёгкий для новичков»</h3>
-
-          <p>
-            На белорусских склонах сейчас очень много россиян, которые решили
-            провести зимние каникулы в Беларуси. Некоторые приехали целыми
-            семьями. Например, супруги Ярослав и Ольга Хрольковы из Москвы.
-          </p>
-
-          <div class="quote-layout">
-            <div class="quote-text">
-              <p>
-                Пока у родителей небольшая передышка между спусками, их дочь Аня
-                делится с нами впечатлениями и рассказывает, почему ей комфортно
-                начинать именно здесь.
-              </p>
-              <p>
-                Следующий шаг — занятие с инструктором: девочка ждёт тренера и
-                готовится осваивать повороты на кантах, чтобы чувствовать себя
-                увереннее на скорости.
-              </p>
-            </div>
-
-            <aside class="quote-card" aria-label="Прямая речь">
-              <blockquote class="quote">
-                <p>
-                  «Очень нравится учебный склон. Он легкий для новичков, поэтому
-                  не страшно. Сейчас должен подойти инструктор — будем учиться
-                  ездить на кантах, чтобы резче поворачивать».
-                </p>
-              </blockquote>
-            </aside>
-          </div>
-
-          <p>
-            Такие семейные поездки — отдельная атмосфера: взрослые успевают
-            покататься “по-взрослому”, а дети делают первые уверенные шаги в
-            спорте — в спокойном темпе и с поддержкой инструктора.
-          </p>
-        </section>
-
-        <article
-          id="chapter-2"
-          class="chapter"
-          data-bg="./assets/img/projects/hero1.jpg"
-        >
-          <header class="chapter-header">
-            <h2 class="chapter-title">Стоимость</h2>
-            <p class="chapter-lead">
-              Прокат, обучение и ски-пасс: сколько стоит день на склоне, если
-              приезжаете без своего оборудования и хотите кататься уверенно.
-            </p>
-          </header>
-
-          <div class="chapter-content">
-            <div class="text-block">
-              <p>
-                Если своего оборудования нет — это не проблема: на курорте можно
-                взять всё напрокат. В наличии экипировка на любой рост и размер
-                ноги, подчёркивает главный маркетолог Диана Павлович.
-              </p>
-
-              <div class="quote-layout">
-                <div class="quote-text">
-                  <p>
-                    По словам Дианы, прокатный парк регулярно обновляют, а в
-                    первую очередь — наиболее изнашиваемые элементы. Речь,
-                    прежде всего, о ботинках и креплениях: на них приходится
-                    основная нагрузка в сезон, поэтому их поддерживают в
-                    максимально “рабочем” состоянии.
-                  </p>
-                  <p>
-                    В этом сезоне дополнительно закупили хорошие лыжные ботинки
-                    в ходовых размерах, чтобы проще было подобрать комплект “с
-                    первого раза” — без компромиссов по комфорту.
-                  </p>
-                </div>
-
-                <aside class="quote-card" aria-label="Прямая речь">
-                  <blockquote class="quote">
-                    <p>
-                      «Регулярно обновляем оборудование, особенно наиболее
-                      изнашивающиеся компоненты, в числе которых ботинки и
-                      крепления к ним. В этом сезоне дополнительно приобрели
-                      хорошие лыжные ботинки в ходовых размерах. Вообще обувь у
-                      нас от 23-го до 47-го размера. Что касается
-                      сноубордического оборудования, то размерный ряд чуть поуже
-                      — с 34-го до 46-го».
-                    </p>
-                  </blockquote>
-                  <div class="quote-author">
-                    — Диана Павлович, главный маркетолог
-                  </div>
-                </aside>
-              </div>
-
-              <p>
-                Хорошо, если уже уверенно стоите на лыжах или доске. А если нет
-                — можно учиться самому, но куда практичнее взять занятие с
-                инструктором: поставят технику, объяснят ошибки и прогресс
-                обычно заметен уже после первых тренировок.
-              </p>
-
-              <div class="quote-layout">
-                <div class="quote-text">
-                  <p>
-                    Инструктор Вадим Мыслев предупреждает: быстро “поехать
-                    правильно” можно, но многое зависит от физической подготовки
-                    и координации. Занятия строятся системно — сначала разминка,
-                    затем упражнения и контроль скорости, чтобы ученик мог
-                    безопасно спускаться, не разгоняясь до опасных значений.
-                  </p>
-                  <p>
-                    Отдельный блок — правильное падение. Это звучит смешно, но
-                    на практике часто спасает от травм. Правда, в стрессовой
-                    ситуации новички нередко забывают даже самые понятные
-                    рекомендации — поэтому инструктор возвращает к ним снова и
-                    снова.
-                  </p>
-                </div>
-
-                <aside class="quote-card" aria-label="Прямая речь">
-                  <blockquote class="quote">
-                    <p>
-                      «Многое зависит от физической подготовки ученика и его
-                      координации. Кому-то одного часа достаточно, а кому-то
-                      нужно три-четыре урока. Занятие всегда начинается с
-                      разминки. Важно разогреть суставы, чтобы не получить
-                      травму. Потом разучиваем упражнения, чтобы человек мог
-                      съехать с горы, не разогнавшись до космической скорости и
-                      не разбившись. Правильно падать тоже учим, но в стрессовой
-                      ситуации ученик все равно об этих советах забывает».
-                    </p>
-                  </blockquote>
-                </aside>
-              </div>
-
-              <p>
-                Говорят, любишь кататься — люби и саночки возить. Горные лыжи и
-                сноуборд этот закон нарушают: обратно на гору вас вернёт
-                подъёмник. Двухчасовой ски-пасс по будням стоит 35 рублей, по
-                выходным — 50 рублей. Для детей — 25 и 30 рублей соответственно.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article
-          id="chapter-3"
-          class="chapter"
-          data-bg="./assets/img/projects/hero-bg.jpg"
-        >
-          <header class="chapter-header">
-            <h2 class="chapter-title">Какие трассы работают?</h2>
-            <p class="chapter-lead">
-              Сезон стартовал с погодными “качелями”, но сейчас основные спуски
-              уже в деле, а часть трасс и сноупарк продолжают доснеживать.
-            </p>
-          </header>
-
-          <div class="chapter-content">
-            <div class="text-block">
-              <p>
-                Начало сезона выдалось непростым: декабрь скупился на снег и
-                морозы. Чтобы открыть сезон, пришлось стянуть максимальное
-                количество пушек на учебный склон. Когда ударили морозы,
-                доснежили третий склон. Потом случилась очередная оттепель… И
-                только 3 января удалось открыть первую трассу — она же основная.
-              </p>
-
-              <p>
-                Сразу хлынули посетители, которые весь декабрь пристально
-                следили за соцсетями горнолыжного центра, чтобы утолить жажду
-                адреналина и наконец-то выйти на полноценный спуск.
-              </p>
-
-              <p>
-                Сейчас работает также четвертая трасса — “черная”. Она сложная и
-                крутая: на нее отваживаются выйти только спортсмены-асы, которые
-                не боятся скорости. Говорят, на ней можно разогнаться до 120
-                км/ч. Проверять мы, конечно, не будем.
-              </p>
-
-              <div class="quote-layout">
-                <div class="quote-text">
-                  <p>
-                    “Черная” трасса — это уже про опыт, контроль и холодную
-                    голову. Здесь важны техника, умение держать дугу и понимание
-                    своего темпа. Ошибки на таком уклоне не прощаются, поэтому
-                    новичкам лучше не гнаться за эмоциями и начинать с учебного
-                    склона.
-                  </p>
-                </div>
-
-                <aside class="quote-card" aria-label="Ремарка">
-                  <blockquote class="quote">
-                    <p>«Иначе кто написал бы для вас этот текст?..»</p>
-                  </blockquote>
-                </aside>
-              </div>
-
-              <p>
-                Сейчас в «Силичах» снежат вторую и пятую трассы, а также
-                сноупарк. К слову, инструкторы советуют не переоценивать свои
-                силы и оттачивать навыки на учебном склоне. На тюбинговой трассе
-                тоже не придется плестись с «ватрушкой» в гору — есть подъемник.
-                Стоимость одного спуска в этом сезоне — 4 рубля, 10 спусков — 23
-                рубля. В сумму уже включена аренда тюбинга.
-              </p>
-            </div>
-
-            <section
-              class="section section--compact"
-              id="collage"
-              data-bg="https://source.unsplash.com/1600x900/?winter,resort,snow&sig=220"
-            >
-              <div class="section-inner">
-                <h3 class="section-mini-title">Мини-коллажи</h3>
-                <p class="section-mini-subtitle">
-                  Плитка кадров, которая «держит» ритм: детали, эмоции,
-                  скорость.
-                </p>
-
-                <div
-                  class="photo-collage"
-                  id="photoCollage"
-                  aria-label="Коллаж фото"
-                ></div>
-              </div>
-            </section>
-          </div>
-        </article>
-      </main>
+  <section class="hero" id="top">
+    <div class="hero-bg hero-bg-slider" aria-hidden="true" data-hero-slider>
+      <div class="hero-slide active" style="background-image: url('../img/hero.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('../img/people.jpg')"></div>
+      <div class="hero-slide" style="background-image: url('../img/hero-3.jpg')"></div>
     </div>
 
-    <section
-      id="gallery"
-      class="gallery-section"
-      data-bg="https://source.unsplash.com/1600x900/?mountain,snow,bluehour&sig=333"
-    >
-      <div class="container">
-        <h2>Лучшие моменты (70 фото)</h2>
-        <p class="gallery-subtitle">
-          Галерея собирается автоматически из массива изображений (в JS). Можно
-          заменить на ваши локальные файлы без изменения разметки.
-        </p>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-        <div class="gallery-toolbar">
-          <button class="btn btn-secondary" type="button" id="shuffleGallery">
-            Перемешать
-          </button>
-          <button class="btn btn-primary" type="button" id="scrollToGame">
-            Перейти к мини-игре
-          </button>
-        </div>
+    <div class="hero-content">
+      <h1 class="hero-title">Море снега — крутые трассы!</h1>
+      <p class="hero-tagline">
+        Какая обстановка в эти снежные дни царит в белорусском горнолыжном
+        центре «Силичи»?
+      </p>
 
-        <div
-          class="masonry-grid"
-          id="galleryGrid"
-          aria-label="Галерея фото"
-        ></div>
-      </div>
-    </section>
+      <a href="#chapter-1" class="hero-cta">
+        <span class="btn btn-primary">СМОТРЕТЬ РЕПОРТАЖ</span>
+      </a>
+    </div>
 
-    <section
-      class="game-section"
-      id="mini-game"
-      data-bg="https://source.unsplash.com/1600x900/?ski,track,snow&sig=444"
-    >
-      <div class="container">
-        <h2 class="section-title section-title--onbg">Мини-игра: лыжник</h2>
-        <p class="section-subtitle section-subtitle--onbg">
-          Веди лыжника мышью (на телефоне — пальцем), объезжай деревья и проедь
-          до финиша.
-        </p>
 
-        <div class="game-container">
-          <div class="game-wrapper">
-            <canvas
-              id="gameCanvas"
-              width="800"
-              height="450"
-              aria-label="Мини-игра лыжник"
-            ></canvas>
-          </div>
+    <span></span>
+    </div>
+  </section>
 
-          <div class="game-ui">
-            <div class="game-stats">
-              <div class="stat">
-                <span class="stat-label">Счёт:</span>
-                <span id="gameScore">Очки: 0</span>
-              </div>
-              <div class="stat">
-                <span class="stat-label">Статус:</span>
-                <span id="gameStatus">Нажмите «Начать игру»</span>
-              </div>
+  <section class="section section--padded" id="highlights" data-bg="./assets/img/projects/hero1.jpg">
+    <div class="container">
+      <div class="slider" data-slider="highlights">
+        <div class="slider-viewport">
+          <div class="slider-track">
+            <div class="slider-slide">
+              <img src="./assets/img/slider-1/1.jpg" alt="Склон и свет" loading="lazy" decoding="async" width="1600"
+                height="900" />
             </div>
-
-            <div class="game-controls">
-              <button class="btn btn-primary" id="gameStart" type="button">
-                Начать игру
-              </button>
-              <button class="btn btn-secondary" id="gameRestart" type="button">
-                Рестарт
-              </button>
+            <div class="slider-slide">
+              <img src="./assets/img/slider-1/2.jpg" alt="Горный рельеф" loading="lazy" decoding="async" width="1600"
+                height="900" />
+            </div>
+            <div class="slider-slide">
+              <img src="./assets/img/slider-1/3.jpg" alt="Люди на курорте" loading="lazy" decoding="async" width="1600"
+                height="900" />
+            </div>
+            <div class="slider-slide">
+              <img src="./assets/img/slider-1/4.jpg" alt="Вечерняя атмосфера" loading="lazy" decoding="async"
+                width="1600" height="900" />
+            </div>
+            <div class="slider-slide">
+              <img src="./assets/img/slider-1/5.jpg" alt="Движение и скорость" loading="lazy" decoding="async"
+                width="1600" height="900" />
             </div>
           </div>
+        </div>
 
-          <div class="game-instructions">
-            <h3>Как играть</h3>
-            <ul>
-              <li>• Управление: мышь / тач (движение по горизонтали)</li>
-              <li>• Деревья: минус очки</li>
-              <li>• Ворота: плюс очки</li>
-              <li>• Цель: доехать до финиша</li>
-            </ul>
+        <button class="slider-btn prev" type="button" aria-label="Предыдущий слайд">
+          ❮
+        </button>
+        <button class="slider-btn next" type="button" aria-label="Следующий слайд">
+          ❯
+        </button>
+
+        <div class="slider-dots" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <aside class="sidebar-nav" aria-label="Содержание">
+      <nav class="contents">
+        <h3>Содержание</h3>
+        <ol>
+          <li>
+            <a href="#chapter-1" data-chapter="1">Посетителей — много?</a>
+          </li>
+          <li><a href="#chapter-2" data-chapter="2">Стоимость</a></li>
+          <li>
+            <a href="#chapter-3" data-chapter="3">Какие трассы работают?</a>
+          </li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <article id="chapter-1" class="chapter" data-bg="./assets/img/people.jpg">
+        <header class="chapter-header">
+          <h2 class="chapter-title">Посетителей много?</h2>
+
+        </header>
+
+        <div class="chapter-content">
+          <div class="text-block">
+            <p>
+              Мы отправились сюда в будний день накануне выхода номера. Признаться, немного переживали, что в полной
+              мере передать царящую на склонах атмосферу не удастся, ведь, кажется, многие на работе.
+            </p>
+
+            <div class="quote-layout">
+              <div class="quote-text">
+                <p>
+                  Но уже на подъезде
+                  стало понятно, что без атмосферных кадров не останемся: парковка настолько заставлена машинами
+                  посетителей, что нам пришлось покружить в поисках свободного места.
+                </p>
+              </div>
+
+              <aside class="quote-card" aria-label="Прямая речь">
+                <blockquote class="quote">
+                  <p>
+                    — Если ваши читатели решат выбраться сюда в выходные, напишите, чтобы выезжали сильно заранее. Мой
+                    товарищ был тут в субботу. Говорил, больше часа простоял -- мест на парковке не было, -- дал совет
+                    проходивший мимо лыжник, услышавший наш с фотографом разговор.
+                  </p>
+                </blockquote>
+              </aside>
+            </div>
+
           </div>
+
+          <figure class="feature">
+            <picture class="feature-media">
+              <source media="(min-width: 1024px)" srcset="./assets/img/people.jpg" />
+              <source media="(min-width: 768px)" srcset="./assets/img/people.jpg" />
+              <img src="./assets/img/people.jpg" alt="Курорт и гости" loading="lazy" width="1400" height="840" />
+            </picture>
+            <figcaption class="feature-caption"></figcaption>
+          </figure>
+
+          <section class="mini-collage-wrap" aria-label="Мини-коллаж атмосферы">
+            <div class="mini-collage" data-mini-collage>
+              <button class="mini-collage__item is-a" type="button" aria-label="Открыть фото"></button>
+              <button class="mini-collage__item is-b" type="button" aria-label="Открыть фото"></button>
+              <button class="mini-collage__item is-c" type="button" aria-label="Открыть фото"></button>
+              <button class="mini-collage__item is-d" type="button" aria-label="Открыть фото"></button>
+              <button class="mini-collage__item is-e" type="button" aria-label="Открыть фото"></button>
+            </div>
+            <div class="mini-collage__caption">
+
+            </div>
+          </section>
+
+          <section class="text-block" aria-label="История посетителей">
+            <p>
+              Среди катающихся на учебном склоне — гомельчанин Андрей Титович
+              со спутницей Татьяной. Мужчина уже опытный лыжник, а девушка
+              только постигает азы спорта и учится чувствовать скорость,
+              баланс и уверенность на спуске.
+            </p>
+
+            <div class="quote-layout">
+              <div class="quote-text">
+
+              </div>
+
+              <aside class="quote-card" aria-label="Прямая речь">
+                <blockquote class="quote">
+                  <p>
+                    - И страшно, и сложно. Порой хочется все бросить и уехать, но мы не сдаемся. Главная задача – не
+                    повиснуть на сосне. Если к вечеру руки, ноги будут целы, значит, день прошел не зря, - шутит
+                    Андрей, пока Татьяна собирает волю в кулак, готовясь к очередному спуску с учебного склона.
+                  </p>
+                </blockquote>
+              </aside>
+            </div>
+
+
+          </section>
+        </div>
+      </article>
+
+      <section class="text-block text-block--standalone" aria-label="История посетителей из России"
+        data-bg="./assets/img/projects/hero.jpg">
+
+        <div class="quote-layout">
+          <div class="quote-text">
+            На белорусских склонах очень много россиян, которые решили провести зимние каникулы в Беларуси. Некоторые
+            приехали целыми семьями. Например, супруги Ярослав и Ольга Хрольковы из Москвы. Пока у родителей небольшая
+            передышка между спусками, их дочь Аня делится с нами впечатлениями:
+          </div>
+
+          <aside class="quote-card" aria-label="Прямая речь">
+            <blockquote class="quote">
+              <p>
+                - Очень нравится учебный склон. Он легкий для новичков, поэтому не страшно. Сейчас должен подойти
+                инструктор -- будем учиться ездить на кантах, чтобы резче поворачивать.
+              </p>
+            </blockquote>
+          </aside>
+        </div>
+
+      </section>
+
+      <article id="chapter-2" class="chapter" data-bg="./assets/img/projects/hero1.jpg">
+        <header class="chapter-header">
+          <h2 class="chapter-title">Стоимость</h2>
+        </header>
+
+        <div class="chapter-content">
+          <div class="text-block">
+            <p>
+              Если нет своего оборудования, его можно взять напрокат. В наличии экипировка на любой размер ноги и рост,
+              говорит главный маркетолог Диана Павлович:
+            </p>
+
+            <div class="quote-layout">
+              <div class="quote-text">
+
+              </div>
+
+              <aside class="quote-card" aria-label="Прямая речь">
+                <blockquote class="quote">
+                  <p>
+                    - Регулярно обновляем оборудование, особенно наиболее изнашивающиеся компоненты, в числе которых
+                    ботинки и крепления к ним. В этом сезоне дополнительно приобрели хорошие лыжные ботинки в ходовых
+                    размерах. Вообще обувь у нас от 23-го до 47-го размера. Что касается сноубордического оборудования,
+                    то размерный ряд чуть поуже - с 34-го до 46-го.
+                  </p>
+                </blockquote>
+                <div class="quote-author">
+
+                </div>
+              </aside>
+            </div>
+
+            <p>
+              Хорошо, если умеешь кататься. А если нет, можно учиться самому или обратиться к инструктору за уроком.
+              Второй вариант более выигрышный: сразу станете кататься правильно и результат не заставит себя ждать. Но
+              синяки все равно получите – без этого никак, предупреждает инструктор Вадим Мыслев:
+            </p>
+
+            <div class="quote-layout">
+              <div class="quote-text">
+                <p>
+                  Инструктор Вадим Мыслев предупреждает: быстро “поехать
+                  правильно” можно, но многое зависит от физической подготовки
+                  и координации. Занятия строятся системно — сначала разминка,
+                  затем упражнения и контроль скорости, чтобы ученик мог
+                  безопасно спускаться, не разгоняясь до опасных значений.
+                </p>
+                <p>
+                  Отдельный блок — правильное падение. Это звучит смешно, но
+                  на практике часто спасает от травм. Правда, в стрессовой
+                  ситуации новички нередко забывают даже самые понятные
+                  рекомендации — поэтому инструктор возвращает к ним снова и
+                  снова.
+                </p>
+              </div>
+
+              <aside class="quote-card" aria-label="Прямая речь">
+                <blockquote class="quote">
+                  <p>
+                    - Многое зависит от физической подготовки ученика и его координации. Кому-то одного часа
+                    достаточно, а кому-то нужно три-четыре урока. Занятие всегда начинается с разминки. Важно разогреть
+                    суставы, чтобы не получить травму. Потом разучиваем упражнения, чтобы человек мог съехать с горы, не
+                    разогнавшись до космической скорости и не разбившись. Правильно падать тоже учим, но в стрессовой
+                    ситуации ученик все равно об этих советах забывает.
+                  </p>
+                </blockquote>
+              </aside>
+            </div>
+
+            <p>
+              Говорят, любишь кататься — люби и саночки возить. Горные лыжи и сноуборд нарушают этот закон, ведь обратно
+              на гору вас вернет подъемник. Двухчасовой ски-пасс по будням стоит 35 рублей, по выходным – 50 рублей. Для
+              детей – 25 и 30 рублей соответственно.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <article id="chapter-3" class="chapter" data-bg="./assets/img/projects/hero-bg.jpg">
+        <header class="chapter-header">
+          <h2 class="chapter-title">Какие трассы работают?</h2>
+
+        </header>
+
+        <div class="chapter-content">
+          <div class="text-block">
+            <p>
+              Начало сезона выдалось непростым - декабрь скупился на снег и морозы. Чтобы открыть сезон, пришлось
+              стянуть максимальное количество пушек на учебный склон. Когда ударили морозы, доснежили третий склон.
+              Потом случилась очередная оттепель… И только 3 января удалось открыть первую трассу, она же основная.
+              Сразу хлынули посетители, которые весь декабрь пристально следили за соцсетями горнолыжного центра, чтобы
+              утолить жажду адреналина.
+            </p>
+
+            <div class="quote-layout">
+              <div class="quote-text">
+                <p>
+                  Сейчас работает также четвертая трасса, черная. Она сложная и крутая. На нее отваживаются выйти только
+                  спортсмены-асы, которые не боятся скорости. Говорят, на ней можно разогнаться до 120 км/ч. Проверять
+                  мы, конечно, не будем.
+                </p>
+              </div>
+
+              <aside class="quote-card" aria-label="Ремарка">
+                <blockquote class="quote">
+                  <p>«Иначе кто написал бы для вас этот текст?..»</p>
+                </blockquote>
+              </aside>
+            </div>
+
+            <p>
+              Сейчас в «Силичах» снежат вторую и пятую трассы, а также сноупарк. К слову, инструкторы советуют не
+              переоценивать свои силы и оттачивать навыки на учебном склоне. На тюбинговой трассе тоже не придется
+              плестись с «ватрушкой» в гору - есть подъемник. Стоимость одного спуска в этом сезоне – 4 рубля, 10
+              спусков – 23 рубля. В сумму уже включена аренда тюбинга.
+            </p>
+          </div>
+
+          <section class="section section--compact" id="collage"
+            data-bg="https://source.unsplash.com/1600x900/?winter,resort,snow&sig=220">
+            <div class="section-inner">
+              
+          
+
+              <div class="photo-collage" id="photoCollage" aria-label="Коллаж фото"></div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <section id="gallery" class="gallery-section"
+    data-bg="https://source.unsplash.com/1600x900/?mountain,snow,bluehour&sig=333">
+    <div class="container">    
+     
+      <div class="gallery-toolbar">       
+       
+      </div>
+
+      <div class="masonry-grid" id="galleryGrid" aria-label="Галерея фото"></div>
+    </div>
+  </section>
+
+  <section class="game-section" id="mini-game" data-bg="https://source.unsplash.com/1600x900/?ski,track,snow&sig=444">
+    <div class="container">
+      <h2 class="section-title section-title--onbg">Мини-игра: лыжник</h2>
+      <p class="section-subtitle section-subtitle--onbg">
+        Веди лыжника мышью (на телефоне — пальцем), объезжай деревья и проедь
+        до финиша.
+      </p>
+
+      <div class="game-container">
+        <div class="game-wrapper">
+          <canvas id="gameCanvas" width="800" height="450" aria-label="Мини-игра лыжник"></canvas>
+        </div>
+
+        <div class="game-ui">
+          <div class="game-stats">
+            <div class="stat">
+              <span class="stat-label">Счёт:</span>
+              <span id="gameScore">Очки: 0</span>
+            </div>
+            <div class="stat">
+              <span class="stat-label">Статус:</span>
+              <span id="gameStatus">Нажмите «Начать игру»</span>
+            </div>
+          </div>
+
+          <div class="game-controls">
+            <button class="btn btn-primary" id="gameStart" type="button">
+              Начать игру
+            </button>
+            <button class="btn btn-secondary" id="gameRestart" type="button">
+              Рестарт
+            </button>
+          </div>
+        </div>
+
+        <div class="game-instructions">
+          <h3>Как играть</h3>
+          <ul>
+            <li>• Управление: мышь / тач (движение по горизонтали)</li>
+            <li>• Деревья: минус очки</li>
+            <li>• Ворота: плюс очки</li>
+            <li>• Цель: доехать до финиша</li>
+          </ul>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <button id="backToTop" class="back-to-top" aria-label="Вернуться в начало">
-      <svg
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="M12 5v14m0 0l-7-7m7 7l7-7"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-      </svg>
-    </button>
+  <button id="backToTop" class="back-to-top" aria-label="Вернуться в начало">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 5v14m0 0l-7-7m7 7l7-7" stroke="currentColor" stroke-width="2" />
+    </svg>
+  </button>
 
-    <section
-      class="page projects-section"
-      id="projects"
-      aria-label="Живой репортаж — материалы"
-      data-bg="./assets/img/projects/hero.jpg"
-    >
-      <div class="projects-inner container">
-        <div class="section-header">
-          <h2 class="section-title text-pr section-title--onbg">
-            Живой репортаж — материалы
-          </h2>
-        </div>
+  <section class="page projects-section" id="projects" aria-label="Живой репортаж — материалы"
+    data-bg="./assets/img/projects/hero.jpg">
+    <div class="projects-inner container">
+      <div class="section-header">
+        <h2 class="section-title text-pr section-title--onbg">
+          Живой репортаж — материалы
+        </h2>
+      </div>
 
-        <div
-          class="projects-viewport"
-          data-autoplay="true"
-          data-interval="5000"
-        >
-          <div class="projects-stage">
-            <a
-              href="https://www.sb.by/sp/simvol-sily-i-krasoty/"
-              class="project-card"
-            >
-              <img
-                src="./assets/img/projects/hero1.jpg"
-                loading="lazy"
-                alt="Символ 2026 года"
-              />
-              <div class="project-info">
-                <h3>Символ силы и красоты</h3>
-              </div>
-            </a>
+      <div class="projects-viewport" data-autoplay="true" data-interval="5000">
+        <div class="projects-stage">
+          <a href="https://www.sb.by/sp/simvol-sily-i-krasoty/" class="project-card">
+            <img src="./assets/img/projects/hero1.jpg" loading="lazy" alt="Символ 2026 года" />
+            <div class="project-info">
+              <h3>Символ силы и красоты</h3>
+            </div>
+          </a>
 
-            <a
-              href="https://www.sb.by/sp/kak-zhivet-samyj-vysokij-futbolist-mira/"
-              class="project-card is-active"
-            >
-              <img
-                src="./assets/img/projects/hero.jpg"
-                loading="lazy"
-                alt="Футболист"
-              />
-              <div class="project-info">
-                <h3>210 сантиметров над уровнем поля</h3>
-              </div>
-            </a>
+          <a href="https://www.sb.by/sp/kak-zhivet-samyj-vysokij-futbolist-mira/" class="project-card is-active">
+            <img src="./assets/img/projects/hero.jpg" loading="lazy" alt="Футболист" />
+            <div class="project-info">
+              <h3>210 сантиметров над уровнем поля</h3>
+            </div>
+          </a>
 
-            <a
-              href="https://www.sb.by/sp/legko-li-sobirat-konfetnye-podarki/"
-              class="project-card"
-            >
-              <img
-                src="./assets/img/projects/hero-bg.jpg"
-                loading="lazy"
-                alt="Полярники"
-              />
-              <div class="project-info">
-                <h3>Легко ли собирать конфетные подарки?</h3>
-              </div>
-            </a>
-          </div>
-
-          <div class="projects-controls">
-            <button class="pr-btn prev" type="button" aria-label="Назад">
-              ◀
-            </button>
-            <div class="pr-dots" aria-hidden="true"></div>
-            <button class="pr-btn next" type="button" aria-label="Вперед">
-              ▶
-            </button>
-          </div>
-        </div>
-
-        <div class="projects-footer">
-          <a
-            href="https://www.sb.by/articles/themes/spetsproekt-sb-nash-zhivoy-reportazh/"
-            class="btn-all-projects"
-          >
-            Смотреть все материалы
+          <a href="https://www.sb.by/sp/legko-li-sobirat-konfetnye-podarki/" class="project-card">
+            <img src="./assets/img/projects/hero-bg.jpg" loading="lazy" alt="Полярники" />
+            <div class="project-info">
+              <h3>Легко ли собирать конфетные подарки?</h3>
+            </div>
           </a>
         </div>
+
+        <div class="projects-controls">
+          <button class="pr-btn prev" type="button" aria-label="Назад">
+            ◀
+          </button>
+          <div class="pr-dots" aria-hidden="true"></div>
+          <button class="pr-btn next" type="button" aria-label="Вперед">
+            ▶
+          </button>
+        </div>
       </div>
 
-      <footer class="site-footer">
-        <div class="footer-credits">
-          <p>Автор: <strong>Инна ГОРБАТЕНКО</strong></p>
-          <p>Фото: <strong>Кирилл СТАСЬКО</strong></p>
-        </div>
-
-        <hr class="footer-divider" />
-
-        <div class="footer-copy">© Издательский дом «Беларусь сегодня»</div>
-      </footer>
-    </section>
-
-    <div id="lightbox" class="lightbox" hidden aria-label="Просмотр фото">
-      <button class="lightbox-close" type="button" aria-label="Закрыть">
-        ×
-      </button>
-      <button class="lightbox-prev" type="button" aria-label="Предыдущее фото">
-        ❮
-      </button>
-      <img id="lightboxImage" src="" alt="" />
-      <button class="lightbox-next" type="button" aria-label="Следующее фото">
-        ❯
-      </button>
+      <div class="projects-footer">
+        <a href="https://www.sb.by/articles/themes/spetsproekt-sb-nash-zhivoy-reportazh/" class="btn-all-projects">
+          Смотреть все материалы
+        </a>
+      </div>
     </div>
 
-    <script src="./assets/js/main.js"></script>
+    <footer class="site-footer">
+      <div class="footer-credits">
+        <p>Автор: <strong>Инна ГОРБАТЕНКО</strong></p>
+        <p>Фото: <strong>Кирилл СТАСЬКО</strong></p>
+      </div>
 
-    <script>
-      window.addEventListener("load", () => {
-        setTimeout(loadYandexMetrika, 3000);
-        setTimeout(loadGTM, 4000);
+      <hr class="footer-divider" />
+
+      <div class="footer-copy">© Издательский дом «Беларусь сегодня»</div>
+    </footer>
+  </section>
+
+  <div id="lightbox" class="lightbox" hidden aria-label="Просмотр фото">
+    <button class="lightbox-close" type="button" aria-label="Закрыть">
+      ×
+    </button>
+    <button class="lightbox-prev" type="button" aria-label="Предыдущее фото">
+      ❮
+    </button>
+    <img id="lightboxImage" src="" alt="" />
+    <button class="lightbox-next" type="button" aria-label="Следующее фото">
+      ❯
+    </button>
+  </div>
+
+  <script src="./assets/js/main.js"></script>
+
+  <script>
+    window.addEventListener("load", () => {
+      setTimeout(loadYandexMetrika, 3000);
+      setTimeout(loadGTM, 4000);
+    });
+
+    function loadYandexMetrika() {
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) return;
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js",
+        "ym"
+      );
+
+      ym(16707172, "init", {
+        webvisor: true,
+        clickmap: true,
+        accurateTrackBounce: true,
+        trackLinks: true,
       });
+    }
 
-      function loadYandexMetrika() {
-        (function (m, e, t, r, i, k, a) {
-          m[i] =
-            m[i] ||
-            function () {
-              (m[i].a = m[i].a || []).push(arguments);
-            };
-          m[i].l = 1 * new Date();
-          for (var j = 0; j < document.scripts.length; j++) {
-            if (document.scripts[j].src === r) return;
-          }
-          (k = e.createElement(t)),
-            (a = e.getElementsByTagName(t)[0]),
-            (k.async = 1),
-            (k.src = r),
-            a.parentNode.insertBefore(k, a);
-        })(
-          window,
-          document,
-          "script",
-          "https://mc.yandex.ru/metrika/tag.js",
-          "ym"
-        );
+    function loadGTM() {
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KRVNNK");
+    }
+  </script>
+</body>
 
-        ym(16707172, "init", {
-          webvisor: true,
-          clickmap: true,
-          accurateTrackBounce: true,
-          trackLinks: true,
-        });
-      }
-
-      function loadGTM() {
-        (function (w, d, s, l, i) {
-          w[l] = w[l] || [];
-          w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-          var f = d.getElementsByTagName(s)[0],
-            j = d.createElement(s),
-            dl = l != "dataLayer" ? "&l=" + l : "";
-          j.async = true;
-          j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-          f.parentNode.insertBefore(j, f);
-        })(window, document, "script", "dataLayer", "GTM-KRVNNK");
-      }
-    </script>
-  </body>
 </html>

@@ -132,12 +132,30 @@ function initHeroSlider() {
 
 function initDataBg() {
     const nodes = qsa("[data-bg]");
+
     nodes.forEach((el) => {
-        const url = el.getAttribute("data-bg");
-        if (!url) return;
+        const raw = el.getAttribute("data-bg");
+        if (!raw) return;
+
+        let url;
+
+        // Абсолютный URL (http, https, //)
+        if (/^(https?:)?\/\//.test(raw)) {
+            url = raw;
+        }
+        // Абсолютный путь от корня сайта
+        else if (raw.startsWith("/")) {
+            url = raw;
+        }
+        // Относительный путь → приводим к абсолютному от текущего документа
+        else {
+            url = new URL(raw, document.baseURI).href;
+        }
+
         el.style.setProperty("--bg-image", `url("${url}")`);
     });
 }
+
 
 function initReveals() {
     const candidates = [
