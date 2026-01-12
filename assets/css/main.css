@@ -555,31 +555,32 @@ button {
   background-image: var(--bg-image);
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   z-index: 0;
-  transform: scale(1.02);
 }
 
 [data-bg]::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-      1200px 600px at 15% 20%,
-      rgba(0, 168, 232, 0.22),
-      transparent 60%
-    ),
-    linear-gradient(
+  background: linear-gradient(
       135deg,
-      var(--bg-overlay-1),
-      var(--bg-overlay-2),
-      var(--bg-overlay-3)
+      rgba(0, 18, 32, 0.65) 0%,
+      rgba(0, 52, 89, 0.55) 50%,
+      rgba(0, 52, 89, 0.65) 100%
+    ),
+    radial-gradient(
+      1200px 600px at 15% 20%,
+      rgba(0, 168, 232, 0.15),
+      transparent 60%
     );
   z-index: 1;
+  backdrop-filter: blur(0.5px);
 }
 
-@media (max-width: 768px) {
+@media (prefers-reduced-motion: reduce) {
   [data-bg]::before {
-    transform: none;
+    background-attachment: scroll;
   }
 }
 
@@ -658,13 +659,14 @@ button {
   margin: 0 auto;
   padding: 0 2rem;
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 1fr; /* было: 320px 1fr */
   gap: 2rem;
   align-items: start;
   position: relative;
   z-index: 2;
   margin-top: 2rem;
 }
+
 
 .sidebar-nav {
   position: sticky;
@@ -766,13 +768,14 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--border-radius);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
-  padding: 1.25rem 1.25rem;
+  padding: 1.8rem 1.8rem;
   color: #1f2c35;
   margin-bottom: 1.25rem;
 }
 
 .text-block p {
   margin-bottom: 0.9rem;
+  line-height: 1.75;
 }
 
 .text-block p:last-child {
@@ -780,6 +783,7 @@ button {
 }
 
 .text-block--standalone {
+    min-height: 80vh;
   margin: 2rem 0;
 }
 
@@ -789,17 +793,51 @@ button {
   color: #0b2a3c;
 }
 
+/* УЛУЧШЕННЫЙ QUOTE LAYOUT */
 .quote-layout {
   display: grid;
-  grid-template-columns: 1fr 360px;
-  gap: 1.25rem;
-  align-items: start;
-  margin: 1.1rem 0;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  align-items: stretch;
+  margin: 1.5rem 0;
+  position: relative;
+  
 }
+
+.quote-text {
+  order: -1;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  background: rgba(0, 52, 89, 0.08);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 8px;
+}
+
+.quote-text p {
+  font-size: 1.05rem;
+  color: #1f2c35;
+  font-weight: 500;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.quote-text--white,
+.quote-text--white p {
+  color: rgb(255, 255, 255);
+}
+
 
 @media (max-width: 1024px) {
   .quote-layout {
     grid-template-columns: 1fr;
+  }
+
+  .quote-text {
+    order: 0;
+    border-left: none;
+    border-top: 4px solid var(--primary-color);
+    padding: 1.2rem;
   }
 }
 
@@ -811,26 +849,45 @@ button {
     var(--secondary-color)
   );
   color: white;
-  padding: 1.2rem;
-  border-radius: var(--border-radius);
+  padding: 1.4rem;
+  border-radius: calc(var(--border-radius) + 2px);
   position: relative;
   overflow: hidden;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  min-height: 160px;
 }
 
 .quote-card::before {
   content: '"';
   position: absolute;
-  top: -26px;
-  left: 16px;
-  font-size: 110px;
-  opacity: 0.12;
+  top: -18px;
+  left: 12px;
+  font-size: 100px;
+  opacity: 0.15;
+  font-weight: 900;
+}
+
+.quote-card .quote {
+  position: relative;
+  z-index: 2;
+}
+
+.quote-card .quote p {
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+  font-weight: 500;
 }
 
 .quote-author {
-  margin-top: 0.7rem;
+  margin-top: 1rem;
   font-weight: 800;
-  opacity: 0.9;
+  opacity: 0.85;
+  font-size: 0.95rem;
+  position: relative;
+  z-index: 2;
 }
 
 /* Feature image */
@@ -978,14 +1035,6 @@ button {
 
 .mini-collage__item.is-a {
   grid-row: span 2;
-}
-.mini-collage__item.is-b {
-}
-.mini-collage__item.is-c {
-}
-.mini-collage__item.is-d {
-}
-.mini-collage__item.is-e {
 }
 
 .mini-collage__caption {
@@ -1586,3 +1635,270 @@ button {
     display: none !important;
   }
 }
+
+/* 1) Гарантируем белый текст внутри секции с фоном */
+.text-block.text-block--standalone[data-bg] .quote-layout,
+.text-block.text-block--standalone[data-bg] .quote-text,
+.text-block.text-block--standalone[data-bg] .quote-text * {
+  color: #fff !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #fff;
+}
+
+/* 2) Делаем контрастную подложку под левым текстом (главное для читабельности) */
+.text-block.text-block--standalone[data-bg] .quote-text {
+  background: rgba(0, 0, 0, 0.55) !important;
+  border-left: 4px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem;
+}
+
+/* 3) Усиливаем читаемость: тень текста + лёгкая резкость */
+.text-block.text-block--standalone[data-bg] .quote-text,
+.text-block.text-block--standalone[data-bg] .quote-text * {
+  text-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.85),
+    0 0 1px rgba(0, 0, 0, 0.9);
+}
+
+/* 4) Дополнительно: чуть затемняем общий фон секции именно для этого блока */
+.text-block.text-block--standalone[data-bg]::after {
+  background:
+    linear-gradient(135deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.35) 55%,
+      rgba(0, 0, 0, 0.55) 100%
+    ) !important;
+}
+
+
+/* Только для этого блока */
+.quote-layout.quote-layout--hero {
+  min-height: 80vh;
+  align-items: center;
+}
+
+/* Если этот quote-layout находится внутри секции с data-bg — усиливаем затемнение фона только там */
+.text-block.text-block--standalone[data-bg] .quote-layout.quote-layout--hero {
+  position: relative;
+  z-index: 2;
+}
+
+/* Локальное затемнение фона секции только для блока hero */
+.text-block.text-block--standalone[data-bg] .quote-layout.quote-layout--hero::before {
+  content: "";
+  position: absolute;
+  inset: -1.2rem; /* немного “за края”, чтобы красиво */
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: calc(var(--border-radius) + 10px);
+  z-index: 0;
+}
+
+/* Контент поверх затемнения */
+.text-block.text-block--standalone[data-bg] .quote-layout.quote-layout--hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* По желанию: сделаем левый текст белым и контрастным именно тут */
+.text-block.text-block--standalone[data-bg] .quote-layout.quote-layout--hero .quote-text,
+.text-block.text-block--standalone[data-bg] .quote-layout.quote-layout--hero .quote-text * {
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.85);
+}
+
+
+.photo-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--border-radius) + 10px);
+
+  /* Вот тот самый “спейс под фото” */
+  margin: 1.6rem 0 2rem;
+  padding: clamp(1.25rem, 3vw, 2.4rem);
+
+  color: #fff;
+}
+
+.photo-panel--80vh {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.photo-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--panel-bg);
+  background-size: cover;
+  background-position: center;
+  filter: saturate(1.05);
+  transform: scale(1.02);
+  z-index: 0;
+}
+
+.photo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  /* Более сильное затемнение, чтобы текст был контрастный */
+  background: linear-gradient(
+      135deg,
+      rgba(0, 10, 18, 0.78) 0%,
+      rgba(0, 26, 44, 0.62) 55%,
+      rgba(0, 10, 18, 0.78) 100%
+    );
+  z-index: 1;
+}
+
+
+  
+
+/* Ключевое: контент выше overlay, иначе будет “бледно” */
+.photo-panel__content {  
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Немного подправим карточку текста именно на фото */
+.quote-layout--onphoto .quote-text {
+  background: rgba(255, 255, 255, 0.10);
+  border-left: 4px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.quote-layout--onphoto .quote-text p {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* Если хочешь, чтобы и правая карточка была “под фото”, а не градиентная */
+.quote-layout--onphoto .quote-card {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+
+#chapter-2 {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0 3rem; /* “спейс” вокруг фоновой картинки главы */
+}
+
+#chapter-2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../img/cost.jpg') center/cover no-repeat;
+  z-index: 0;
+  transform: scale(1.01);
+}
+
+#chapter-2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 10, 18, 0.55) 0%,
+    rgba(0, 10, 18, 0.35) 55%,
+    rgba(0, 10, 18, 0.55) 100%
+  );
+  z-index: 1;
+}
+
+#chapter-2 > * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.photo-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--border-radius) + 10px);
+
+  /* “спейс”, чтобы было видно фон главы вокруг панели */
+  width: min(1100px, calc(100% - 2rem));
+  margin: 1.6rem auto 2.2rem;
+  padding: clamp(1.1rem, 2.6vw, 2.2rem);
+
+  color: #fff;
+}
+
+.photo-panel--80vh {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.photo-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--panel-bg);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transform: scale(1.03);
+}
+
+.photo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* сильнее затемняем именно панель, чтобы текст не блек */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 10, 18, 0.80) 0%,
+    rgba(0, 18, 32, 0.62) 55%,
+    rgba(0, 10, 18, 0.80) 100%
+  );
+  z-index: 1;
+}
+
+/* Ключевое: контент выше overlay */
+.photo-panel__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.quote-layout--onphoto .quote-text {
+  background: rgba(255, 255, 255, 0.12);
+  border-left: 4px solid rgba(255, 255, 255, 0.38);
+  backdrop-filter: blur(6px);
+}
+
+.quote-layout--onphoto .quote-text p {
+  color: #fff;
+  font-weight: 650;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.7);
+}
+
+.quote-layout--onphoto .quote-card {
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+}
+
+@media (max-width: 768px) {
+  .photo-panel--80vh {
+    min-height: 70vh;
+  }
+  .photo-panel {
+    width: calc(100% - 1.2rem);
+    margin: 1.2rem auto 1.6rem;
+  }
+}
+
+
