@@ -407,32 +407,12 @@ function initCollageSection() {
   const root = qs("#photoCollage");
   if (!root) return;
 
-  const config = {
-    basePath: "assets/img/collage-2",
-    count: 10,
-    ext: "jpg",
-  };
-
-  const tiles = [
-    { col: "span 6", row: "span 2" },
-    { col: "span 3", row: "span 2" },
-    { col: "span 3", row: "span 1" },
-    { col: "span 3", row: "span 1" },
-    { col: "span 4", row: "span 2" },
-    { col: "span 4", row: "span 1" },
-    { col: "span 4", row: "span 1" },
-    { col: "span 6", row: "span 2" },
-    { col: "span 3", row: "span 2" },
-    { col: "span 3", row: "span 2" },
-  ];
-
-  const count = Math.min(config.count, tiles.length);
+  const basePath = "./assets/img/collage-2";
+  const count = 9;
 
   const collageImages = Array.from({ length: count }, (_, i) => ({
-    src: `${config.basePath}/${i + 1}.${config.ext}`,
+    src: `${basePath}/${i + 1}.jpg`,
     alt: `Коллаж ${i + 1}`,
-    col: tiles[i].col,
-    row: tiles[i].row,
   }));
 
   const frag = document.createDocumentFragment();
@@ -441,24 +421,11 @@ function initCollageSection() {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "collage-item";
-    btn.style.gridColumn = it.col;
-    btn.style.gridRow = it.row;
+    btn.style.backgroundImage = `url("${it.src}")`;
     btn.setAttribute("aria-label", it.alt);
 
-    // Чтобы не ловить "пустые" плитки при неверном пути/именах
-    const img = new Image();
-    img.onload = () => {
-      btn.style.backgroundImage = `url("${it.src}")`;
-    };
-    img.onerror = () => {
-      btn.disabled = true;
-      btn.style.opacity = "0.35";
-      btn.style.cursor = "not-allowed";
-    };
-    img.src = it.src;
-
     btn.addEventListener("click", () => {
-      LIGHTBOX_IMAGES = collageImages;
+      LIGHTBOX_IMAGES = LIGHTBOX_IMAGES.length ? LIGHTBOX_IMAGES : collageImages;
       window.__openLightbox(idx);
     });
 
@@ -468,6 +435,7 @@ function initCollageSection() {
   root.innerHTML = "";
   root.appendChild(frag);
 }
+
 
 /* ========== SLIDERS (generic) ========== */
 
