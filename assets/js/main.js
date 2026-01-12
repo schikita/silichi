@@ -401,12 +401,17 @@ function initMiniCollage() {
   });
 }
 
-
 /* ========== COLLAGE SECTION (10) ========== */
 
 function initCollageSection() {
   const root = qs("#photoCollage");
   if (!root) return;
+
+  const config = {
+    basePath: "assets/img/collage-2",
+    count: 10,
+    ext: "jpg",
+  };
 
   const tiles = [
     { col: "span 6", row: "span 2" },
@@ -421,14 +426,13 @@ function initCollageSection() {
     { col: "span 3", row: "span 2" },
   ];
 
-  const baseSig = 700;
-  const collageImages = tiles.map((t, i) => ({
-    src: `https://source.unsplash.com/1600x1000/?ski,resort,snow,detail&sig=${
-      baseSig + i
-    }`,
+  const count = Math.min(config.count, tiles.length);
+
+  const collageImages = Array.from({ length: count }, (_, i) => ({
+    src: `${config.basePath}/${i + 1}.${config.ext}`,
     alt: `Коллаж ${i + 1}`,
-    col: t.col,
-    row: t.row,
+    col: tiles[i].col,
+    row: tiles[i].row,
   }));
 
   const frag = document.createDocumentFragment();
@@ -439,13 +443,22 @@ function initCollageSection() {
     btn.className = "collage-item";
     btn.style.gridColumn = it.col;
     btn.style.gridRow = it.row;
-    btn.style.backgroundImage = `url("${it.src}")`;
     btn.setAttribute("aria-label", it.alt);
 
+    // Чтобы не ловить "пустые" плитки при неверном пути/именах
+    const img = new Image();
+    img.onload = () => {
+      btn.style.backgroundImage = `url("${it.src}")`;
+    };
+    img.onerror = () => {
+      btn.disabled = true;
+      btn.style.opacity = "0.35";
+      btn.style.cursor = "not-allowed";
+    };
+    img.src = it.src;
+
     btn.addEventListener("click", () => {
-      LIGHTBOX_IMAGES = LIGHTBOX_IMAGES.length
-        ? LIGHTBOX_IMAGES
-        : collageImages;
+      LIGHTBOX_IMAGES = collageImages;
       window.__openLightbox(idx);
     });
 
@@ -589,7 +602,6 @@ function setupSlider(root) {
   });
 }
 
-
 /* ========== PROJECTS CAROUSEL ========== */
 
 function initProjectsCarousel() {
@@ -678,46 +690,82 @@ class SkiGame {
     this.startBtn = qs(`#${startBtnId}`);
     this.restartBtn = qs(`#${restartBtnId}`);
 
+    this.config = {
+      splashSrc: "./assets/favicon/favicon.png",
+      playerSrc: "./assets/img/skier-back.png",
+      lives: 3,
+      baseSpeed: 2.2,
+      maxSpeed: 10,
+      accelPerMs: 0.00023,
+      hitCooldownMs: 900,
+      spawnIntervalBase: 520,
+    };
+
     this.isRunning = false;
+
     this.score = 0;
-
-    this.player = { x: 0, y: 0, width: 18, height: 26 };
-    this.speed = 2.2;
-    this.maxSpeed = 8;
-
     this.distance = 0;
-    this.finishDistance = 2000;
+    this.elapsedMs = 0;
+
+    this.speed = this.config.baseSpeed;
+    this.lives = this.config.lives;
+
+    this.player = { x: 0, y: 0, width: 26, height: 42 };
+    this.pointerX = 0;
 
     this.obstacles = [];
     this.checkpoints = [];
     this.particles = [];
 
-    this.pointerX = 0;
     this.spawnCooldown = 0;
-    this.spawnIntervalBase = 520;
 
     this._raf = null;
+    this._lastHitAt = 0;
+    this._hurt = 0;
+
+    this.assets = {
+      splash: { img: null, loaded: false },
+      player: { img: null, loaded: false },
+    };
 
     this.updateCanvasSize();
     this.resetPlayer();
     this.setupEventListeners();
+    this.loadAssets();
+    this.renderIdle();
+    this.updateUI();
+  }
+
+  loadAssets() {
+    this.assets.splash.img = new Image();
+    this.assets.splash.img.onload = () => {
+      this.assets.splash.loaded = true;
+      if (!this.isRunning) this.renderIdle();
+    };
+    this.assets.splash.img.src = this.config.splashSrc;
+
+    this.assets.player.img = new Image();
+    this.assets.player.img.onload = () => {
+      this.assets.player.loaded = true;
+    };
+    this.assets.player.img.src = this.config.playerSrc;
   }
 
   updateCanvasSize() {
     if (!this.canvas) return;
+
     const rect = this.canvas.getBoundingClientRect();
     const dpr = window.devicePixelRatio || 1;
 
     this.canvas.width = Math.max(1, Math.floor(rect.width * dpr));
     this.canvas.height = Math.max(1, Math.floor(rect.height * dpr));
 
-    if (this.ctx) {
-      this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
+    if (this.ctx) this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
   resetPlayer() {
     if (!this.canvas) return;
+
     const rect = this.canvas.getBoundingClientRect();
     this.player.x = rect.width / 2;
     this.player.y = rect.height * 0.78;
@@ -725,12 +773,8 @@ class SkiGame {
   }
 
   setupEventListeners() {
-    if (this.startBtn) {
-      this.startBtn.addEventListener("click", () => this.start());
-    }
-    if (this.restartBtn) {
-      this.restartBtn.addEventListener("click", () => this.start());
-    }
+    if (this.startBtn) this.startBtn.addEventListener("click", () => this.start());
+    if (this.restartBtn) this.restartBtn.addEventListener("click", () => this.start());
 
     if (this.canvas) {
       this.canvas.addEventListener("mousemove", (e) => {
@@ -754,6 +798,7 @@ class SkiGame {
       debounce(() => {
         this.updateCanvasSize();
         this.resetPlayer();
+        if (!this.isRunning) this.renderIdle();
       }, 220)
     );
   }
@@ -762,15 +807,22 @@ class SkiGame {
     if (!this.canvas || !this.ctx) return;
 
     this.isRunning = true;
+
     this.score = 0;
     this.distance = 0;
-    this.speed = 2.2;
+    this.elapsedMs = 0;
+
+    this.speed = this.config.baseSpeed;
+    this.lives = this.config.lives;
 
     this.obstacles = [];
     this.checkpoints = [];
     this.particles = [];
 
     this.spawnCooldown = 0;
+
+    this._lastHitAt = 0;
+    this._hurt = 0;
 
     this.resetPlayer();
 
@@ -781,7 +833,7 @@ class SkiGame {
 
     if (this.statusElement) {
       this.statusElement.textContent =
-        "Двигайтесь по горизонтали, избегайте препятствий и собирайте ворота.";
+        "Ведите мышью/пальцем по горизонтали. Скорость растёт со временем. Столкновение отнимает жизни.";
     }
 
     this.loop(performance.now());
@@ -800,8 +852,34 @@ class SkiGame {
 
     if (this.statusElement) {
       this.statusElement.textContent =
-        message ||
-        `Игра окончена! Итог: ${Math.max(0, Math.floor(this.score))}`;
+        message || `Игра окончена! Итог: ${Math.max(0, Math.floor(this.score))}`;
+    }
+
+    this.renderIdle();
+  }
+
+  updateSpeed(dt) {
+    this.elapsedMs += dt;
+    const next = this.config.baseSpeed + this.elapsedMs * this.config.accelPerMs;
+    this.speed = Math.min(this.config.maxSpeed, next);
+  }
+
+  canTakeHit(now) {
+    return now - this._lastHitAt >= this.config.hitCooldownMs;
+  }
+
+  onHit(now) {
+    this._lastHitAt = now;
+    this._hurt = 1;
+
+    this.lives -= 1;
+
+    if (this.statusElement) {
+      this.statusElement.textContent = `Столкновение! Осталось жизней: ${this.lives}`;
+    }
+
+    if (this.lives <= 0) {
+      this.stop(`Game Over. Итог: ${Math.max(0, Math.floor(this.score))}`);
     }
   }
 
@@ -815,7 +893,7 @@ class SkiGame {
 
     this.spawnCooldown = Math.max(
       240,
-      this.spawnIntervalBase - this.speed * 30
+      this.config.spawnIntervalBase - this.speed * 32
     );
 
     const ox = Math.random() * (w - 40) + 20;
@@ -835,14 +913,14 @@ class SkiGame {
     if (Math.random() < 0.25) this.createSnow(w / 2, h * 0.3);
   }
 
-  update(dt) {
+  update(dt, now) {
     if (!this.isRunning) return;
 
     const rect = this.canvas.getBoundingClientRect();
     const w = rect.width;
     const h = rect.height;
 
-    this.speed = Math.min(this.maxSpeed, this.speed + dt * 0.00035);
+    this.updateSpeed(dt);
 
     this.distance += this.speed * dt * 0.06;
     this.score += this.speed * dt * 0.012;
@@ -859,21 +937,27 @@ class SkiGame {
 
     this.obstacles = this.obstacles.filter((o) => {
       o.y += dy;
+
       if (this.rectsIntersect(this.player, o)) {
-        this.createExplosion(o.x, o.y);
-        this.score -= 35;
+        this.createExplosion(o.x + o.width / 2, o.y + o.height / 2);
+
+        if (this.canTakeHit(now)) this.onHit(now);
+
         return false;
       }
+
       return o.y < h + 50;
     });
 
     this.checkpoints = this.checkpoints.filter((c) => {
       c.y += dy;
+
       if (!c.collected && this.checkpointHit(this.player, c)) {
         c.collected = true;
         this.score += 70;
         this.createSparks(c.x + c.width / 2, c.y + c.height / 2);
       }
+
       return c.y < h + 70;
     });
 
@@ -885,15 +969,13 @@ class SkiGame {
       return p.life > 0;
     });
 
-    if (this.distance >= this.finishDistance) {
-      this.score += 500;
-      this.stop(`Финиш! Итог: ${Math.max(0, Math.floor(this.score))}`);
-    }
+    this._hurt = Math.max(0, this._hurt - dt / 220);
   }
 
   rectsIntersect(player, obj) {
     const px = player.x - player.width / 2;
     const py = player.y;
+
     return (
       px < obj.x + obj.width &&
       px + player.width > obj.x &&
@@ -905,6 +987,7 @@ class SkiGame {
   checkpointHit(player, cp) {
     const centerX = player.x;
     const py = player.y;
+
     return (
       centerX > cp.x &&
       centerX < cp.x + cp.width &&
@@ -956,6 +1039,7 @@ class SkiGame {
     const g = ctx.createLinearGradient(0, 0, 0, h);
     g.addColorStop(0, "#87ceeb");
     g.addColorStop(1, "#e0f6ff");
+
     ctx.fillStyle = g;
     ctx.fillRect(0, 0, w, h);
 
@@ -964,10 +1048,72 @@ class SkiGame {
       const sx =
         (Math.sin((i + 1) * 12.9898 + this.distance * 0.01) * w + w) % w;
       const sy = ((i * h) / 18 + this.distance * 0.18) % h;
+
       ctx.beginPath();
       ctx.arc(sx, sy, 2, 0, Math.PI * 2);
       ctx.fill();
     }
+  }
+
+  drawImageContain(ctx, img, x, y, w, h) {
+    const iw = img.naturalWidth || img.width || 1;
+    const ih = img.naturalHeight || img.height || 1;
+
+    const s = Math.min(w / iw, h / ih);
+    const dw = iw * s;
+    const dh = ih * s;
+
+    const dx = x + (w - dw) / 2;
+    const dy = y + (h - dh) / 2;
+
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }
+
+  updatePlayerSize(w, h) {
+    const desiredH = clamp(h * 0.09, 44, 70);
+
+    if (this.assets.player.loaded) {
+      const img = this.assets.player.img;
+      const iw = img.naturalWidth || img.width || 1;
+      const ih = img.naturalHeight || img.height || 1;
+      const ratio = iw / ih;
+
+      this.player.height = desiredH;
+      this.player.width = Math.max(18, desiredH * ratio);
+      return;
+    }
+
+    this.player.height = desiredH;
+    this.player.width = Math.max(18, desiredH * 0.62);
+  }
+
+  drawPlayer(ctx) {
+    const rect = this.canvas.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+
+    this.updatePlayerSize(w, h);
+
+    const x = this.player.x - this.player.width / 2;
+    const y = this.player.y;
+
+    if (this.assets.player.loaded) {
+      ctx.drawImage(this.assets.player.img, x, y, this.player.width, this.player.height);
+      return;
+    }
+
+    ctx.fillStyle = "#ff006e";
+    ctx.fillRect(x, y, this.player.width, this.player.height);
+  }
+
+  drawHUD(ctx) {
+    ctx.fillStyle = "#1a1a1a";
+    ctx.font = "12px sans-serif";
+    ctx.textAlign = "left";
+
+    ctx.fillText(`Скорость: ${Math.round(this.speed * 8)} км/ч`, 10, 20);
+    ctx.fillText(`Дистанция: ${Math.round(this.distance)} м`, 10, 36);
+    ctx.fillText(`Жизни: ${this.lives}`, 10, 52);
   }
 
   draw() {
@@ -984,6 +1130,7 @@ class SkiGame {
       ctx.strokeStyle = cp.collected ? "#00d400" : "#ff6b6b";
       ctx.lineWidth = 3;
       ctx.strokeRect(cp.x, cp.y, cp.width, cp.height);
+
       ctx.fillStyle = "rgba(255, 107, 107, 0.10)";
       ctx.fillRect(cp.x, cp.y, cp.width, cp.height);
     });
@@ -1005,23 +1152,52 @@ class SkiGame {
       ctx.globalAlpha = 1;
     });
 
-    ctx.fillStyle = "#ff006e";
-    ctx.fillRect(
-      this.player.x - this.player.width / 2,
-      this.player.y,
-      this.player.width,
-      this.player.height
-    );
+    this.drawPlayer(ctx);
+    this.drawHUD(ctx);
 
-    ctx.fillStyle = "white";
-    ctx.fillRect(this.player.x - 6, this.player.y + 6, 4, 4);
-    ctx.fillRect(this.player.x + 2, this.player.y + 6, 4, 4);
+    if (this._hurt > 0) {
+      ctx.fillStyle = `rgba(255, 0, 90, ${0.16 * this._hurt})`;
+      ctx.fillRect(0, 0, w, h);
+    }
+  }
 
-    ctx.fillStyle = "#1a1a1a";
-    ctx.font = "12px sans-serif";
-    ctx.textAlign = "left";
-    ctx.fillText(`Скорость: ${Math.round(this.speed * 8)} км/ч`, 10, 20);
-    ctx.fillText(`Дистанция: ${Math.round(this.distance)} м`, 10, 36);
+  renderIdle() {
+    if (!this.ctx || !this.canvas) return;
+
+    const ctx = this.ctx;
+    const rect = this.canvas.getBoundingClientRect();
+    const w = rect.width;
+    const h = rect.height;
+
+    this.drawBackground(ctx, w, h);
+
+    ctx.fillStyle = "rgba(0,0,0,0.25)";
+    ctx.fillRect(0, 0, w, h);
+
+    if (this.assets.splash.loaded) {
+      const boxW = Math.min(220, w * 0.42);
+      const boxH = Math.min(220, h * 0.42);
+
+      this.drawImageContain(
+        ctx,
+        this.assets.splash.img,
+        (w - boxW) / 2,
+        (h - boxH) / 2,
+        boxW,
+        boxH
+      );
+    }
+
+    ctx.fillStyle = "rgba(255,255,255,0.92)";
+    ctx.textAlign = "center";
+    ctx.font = "700 16px Montserrat, system-ui, sans-serif";
+    ctx.fillText("Нажмите «Начать игру»", w / 2, h * 0.78);
+  }
+
+  updateUI() {
+    if (this.scoreElement) {
+      this.scoreElement.textContent = `Очки: ${Math.max(0, Math.floor(this.score))} • Жизни: ${this.lives}`;
+    }
   }
 
   loop(prevTs) {
@@ -1031,15 +1207,9 @@ class SkiGame {
     const dt = Math.min(60, now - prevTs);
 
     this.spawnObjects(dt);
-    this.update(dt);
+    this.update(dt, now);
     this.draw();
-
-    if (this.scoreElement) {
-      this.scoreElement.textContent = `Очки: ${Math.max(
-        0,
-        Math.floor(this.score)
-      )}`;
-    }
+    this.updateUI();
 
     this._raf = requestAnimationFrame(() => this.loop(now));
   }
@@ -1048,11 +1218,6 @@ class SkiGame {
 function initSkiGame() {
   const canvas = qs("#gameCanvas");
   if (!canvas) return;
-  new SkiGame(
-    "gameCanvas",
-    "gameScore",
-    "gameStatus",
-    "gameStart",
-    "gameRestart"
-  );
+
+  new SkiGame("gameCanvas", "gameScore", "gameStatus", "gameStart", "gameRestart");
 }

@@ -44,7 +44,56 @@ body {
   color: var(--text-color);
   background: var(--bg-light);
   overflow-x: hidden;
+
+  position: relative; /* нужно для псевдо-слоёв */
 }
+
+/* Фоновая картинка */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("../img/collage-2/bg.jpg") center / cover no-repeat;
+  z-index: -2;
+  transform: scale(1.02);
+  will-change: transform;
+}
+
+/* Затемнение/тон под контент (чтобы всё читалось) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 18, 32, 0.62) 0%,
+      rgba(0, 52, 89, 0.42) 55%,
+      rgba(0, 18, 32, 0.62) 100%
+    ),
+    radial-gradient(
+      1200px 700px at 15% 15%,
+      rgba(0, 168, 232, 0.12),
+      transparent 60%
+    );
+  z-index: -1;
+}
+
+/* На мобильных: фиксированный фон часто дёргается — делаем проще */
+@media (max-width: 768px) {
+  body::before,
+  body::after {
+    position: absolute;
+  }
+}
+
+/* Если пользователь просит меньше анимаций — убираем лишнее */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    transform: none;
+  }
+}
+
 
 img,
 picture,
@@ -531,7 +580,7 @@ button {
 
 .btn-secondary {
   background: rgba(255, 255, 255, 0.12);
-  color: white;
+  color: rgb(0, 0, 0);
   border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
 }
@@ -1056,51 +1105,168 @@ button {
   }
 }
 
-/* Collage section grid */
+/* ===========================
+   PHOTO COLLAGE (BIGGER, CLEAN GRID)
+   Заменить твой текущий блок .photo-collage целиком
+   =========================== */
+
 .photo-collage {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 120px;
-  gap: 0.75rem;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: clamp(150px, 12vw, 240px);
+  gap: 0.85rem;
   border-radius: calc(var(--border-radius) + 8px);
+  align-items: stretch;
+  grid-auto-flow: dense; /* плотнее заполняем дырки */
 }
 
 .photo-collage .collage-item {
+  position: relative;
   border: none;
+  padding: 0;
+  margin: 0;
   cursor: pointer;
   border-radius: var(--border-radius);
   overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  position: relative;
+
   box-shadow: 0 16px 50px rgba(0, 0, 0, 0.24);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateZ(0);
+}
+
+.photo-collage .collage-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.28);
+}
+
+.photo-collage .collage-item:focus-visible {
+  outline: 3px solid rgba(0, 168, 232, 0.55);
+  outline-offset: 3px;
+}
+
+.photo-collage .collage-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform 0.6s ease;
+}
+
+.photo-collage .collage-item:hover img {
+  transform: scale(1.07);
 }
 
 .photo-collage .collage-item::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.35) 100%);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.38) 100%),
+    radial-gradient(800px 300px at 20% 10%, rgba(0,168,232,0.16), transparent 55%);
+  pointer-events: none;
 }
 
-.photo-collage .collage-item:hover {
-  transform: translateY(-3px);
+/* Базовый размер плитки: 3 колонки из 12 (крупно и ровно) */
+.photo-collage .collage-item {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;           /* ключевое: показываем целиком */
+  background-color: rgba(255,255,255,0.06); /* фон на “полях” */
 }
 
+
+/* Акценты */
+.photo-collage .collage-item--hero {
+  grid-column: span 6;
+  grid-row: span 2;    
+}
+
+.photo-collage .collage-item--wide {
+  grid-column: span 6;
+  grid-row: span 1;
+}
+
+.photo-collage .collage-item--big {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+.photo-collage .collage-item--tall {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.photo-collage .collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Tablet */
 @media (max-width: 1024px) {
   .photo-collage {
-    grid-template-columns: repeat(6, 1fr);
-    grid-auto-rows: 110px;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-auto-rows: clamp(160px, 18vw, 260px);
+  }
+
+  .photo-collage .collage-item {
+    grid-column: span 4; /* 2 плитки в ряд, крупно */
+  }
+
+  .photo-collage .collage-item--hero {
+    grid-column: span 8;
+    grid-row: span 2;
+  }
+
+  .photo-collage .collage-item--wide {
+    grid-column: span 8;
+  }
+
+  .photo-collage .collage-item--big {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+
+  .photo-collage .collage-item--tall {
+    grid-column: span 4;
+    grid-row: span 2;
   }
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .photo-collage {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 150px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: clamp(170px, 42vw, 260px);
+    gap: 0.7rem;
+  }
+
+  .photo-collage .collage-item {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  /* На мобилке “hero” тоже крупно, но без ломаной геометрии */
+  .photo-collage .collage-item--hero,
+  .photo-collage .collage-item--wide,
+  .photo-collage .collage-item--big,
+  .photo-collage .collage-item--tall {
+    grid-column: span 2;
+    grid-row: span 1;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-collage .collage-item,
+  .photo-collage .collage-item img {
+    transition: none;
+  }
+}
+
 
 /* Gallery */
 .gallery-section {
@@ -1448,8 +1614,8 @@ button {
   position: fixed;
   bottom: 1.5rem;
   right: 1.5rem;
-  width: 52px;
-  height: 52px;
+  width: 65px;
+  height: 65px;
   background: rgba(0, 0, 0, 0.45);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.18);
