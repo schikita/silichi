@@ -639,6 +639,7 @@ button {
 
 .section--padded {
   padding: 5.2rem 0;
+  height: 80vh;
 }
 
 .section--compact {
@@ -957,12 +958,16 @@ button {
 /* Slider */
 .slider {
   position: relative;
+  width: 70%;
+  aspect-ratio: 16 / 9;
+
   z-index: 2;
   border-radius: calc(var(--border-radius) + 6px);
   overflow: hidden;
   box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.16);
 }
+
 
 .slider-viewport {
   overflow: hidden;
@@ -1811,20 +1816,30 @@ button {
   -webkit-text-fill-color: #fff;
 }
 
-/* 2) Делаем контрастную подложку под левым текстом (главное для читабельности) */
+/* 2) УЛУЧШЕННАЯ контрастная подложка под левым текстом */
 .text-block.text-block--standalone[data-bg] .quote-text {
-  background: rgba(0, 0, 0, 0.55) !important;
-  border-left: 4px solid rgba(255, 255, 255, 0.35) !important;
+  background: rgba(0, 0, 0, 0.582);  /* усилили с 0.55 до 0.78 */
+  border-left: 5px solid rgba(255, 255, 255, 0.5) !important;  /* толще и светлее граница */
   border-radius: 12px;
-  padding: 1.25rem 1.25rem;
+  padding: 1.5rem;  /* немного больше padding */
+  backdrop-filter: blur(4px);  /* добавили размытие для эффекта glass */
 }
 
-/* 3) Усиливаем читаемость: тень текста + лёгкая резкость */
+/* 3) УЛУЧШЕННАЯ читаемость: более мощная тень + лучший контраст */
 .text-block.text-block--standalone[data-bg] .quote-text,
 .text-block.text-block--standalone[data-bg] .quote-text * {
   text-shadow:
-    0 2px 10px rgba(0, 0, 0, 0.85),
-    0 0 1px rgba(0, 0, 0, 0.9);
+    0 2px 8px rgba(0, 0, 0, 1),
+    0 0 2px rgba(0, 0, 0, 0.95);
+  font-weight: 550;  /* чуть жирнее для четкости */
+  line-height: 1.85;  /* хороший spacing для читаемости */
+}
+
+/* Дополнительно для <p> внутри .quote-text--white */
+.text-block.text-block--standalone[data-bg] .quote-text p {
+  color: #ffffff !important;
+  font-weight: 550 !important;
+  font-size: 1.08rem;
 }
 
 /* 4) Дополнительно: чуть затемняем общий фон секции именно для этого блока */
@@ -1836,6 +1851,12 @@ button {
       rgba(0, 0, 0, 0.55) 100%
     ) !important;
 }
+
+.quote-text.quote-text--white{
+  position: relative;
+  z-index: 10;
+}
+
 
 
 /* Только для этого блока */
