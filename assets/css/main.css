@@ -944,42 +944,79 @@ button {
 
 /* ==================== SLIDERS ==================== */
 
+/* ==================== SLIDERS ==================== */
+
 .slider {
   position: relative;
+
+  /* Адаптивная ширина: на мобилках почти во всю, на десктопе аккуратно */
+  width: min(100%, 980px);
+  margin-inline: auto;
+
+  /* Гарантированное 16:10 */
+  aspect-ratio: 16 / 10;
+
+  /* Безопасные пределы высоты (чтобы не было гиганта на больших мониторах
+     и слишком мелкого на маленьких) */
+  max-height: 70vh;
+  min-height: 220px;
+
   z-index: 2;
   border-radius: calc(var(--border-radius) + 6px);
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 1024px) {
+  .slider {
+    width: min(100%, 900px);
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {
+    width: 100%;
+    max-height: 62vh;
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    max-height: 56vh;
+    min-height: 220px;
+  }
 }
 
 .slider-viewport {
   overflow: hidden;
+  height: 100%;
 }
 
 .slider-track {
   display: flex;
+  height: 100%;
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: transform;
 }
 
 .slider-slide {
   flex: 0 0 100%;
+  height: 100%;
 }
 
 .slider-slide img {
   width: 100%;
-  height: clamp(200px, 60vh, 560px);
-  object-fit: cover;
+  height: 100%;
   display: block;
+
+  /* Ключевое: картинка заполняет 16:10 контейнер красиво */
+  object-fit: cover;
+  object-position: center;
 }
 
-@media (max-width: 480px) {
-  .slider-slide img {
-    height: 250px;
-  }
-}
-
+/* Кнопки */
 .slider-btn {
   position: absolute;
   top: 50%;
@@ -1031,6 +1068,7 @@ button {
   right: var(--spacing-md);
 }
 
+/* Точки */
 .slider-dots {
   position: absolute;
   left: 50%;
@@ -1054,6 +1092,7 @@ button {
   background: rgba(255, 255, 255, 0.9);
   transform: scale(1.2);
 }
+
 
 /* ==================== MINI COLLAGE ==================== */
 
