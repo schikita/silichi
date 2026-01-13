@@ -2005,3 +2005,86 @@ button {
     grid-template-rows: 150px 150px 150px;
   }
 }
+
+
+/* ==================== STORY GRID: текст слева, фото справа ==================== */
+
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  align-items: start;
+}
+
+/* левая колонка: вертикальная “колонка” из текста и цитаты */
+.story-grid__left {
+  display: grid;
+  gap: var(--spacing-md);
+  min-width: 0;
+}
+
+/* правая колонка: фото */
+.story-grid__right {
+  min-width: 0;
+}
+
+/* сам блок фото */
+.story-photo {
+  width: 100%;
+  border-radius: calc(var(--border-radius) + 8px);
+  overflow: hidden;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+
+  background-image: var(--photo);
+  background-size: cover;
+  background-position: center;
+
+  /* пропорции: удобно для новостных фото */
+  aspect-ratio: 4 / 3;
+  min-height: 260px;
+}
+
+/* Мобильная версия: всё в столбик */
+@media (max-width: 768px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .story-photo {
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+  }
+}
+
+/* ==================== STORY GRID: фото по высоте текста ==================== */
+
+/* Десктоп: фото растягивается по высоте левой колонки */
+.story-grid {
+  align-items: stretch; /* важно */
+}
+
+.story-grid__right {
+  display: flex;
+}
+
+.story-photo {
+  height: 100%;
+  min-height: 100%;
+  aspect-ratio: auto; /* КЛЮЧЕВОЕ */
+}
+
+/* Мобильная версия — обратно нормальные пропорции */
+@media (max-width: 768px) {
+  .story-grid__right {
+    display: block;
+  }
+
+  .story-photo {
+    height: auto;
+    min-height: 220px;
+    aspect-ratio: 16 / 10;
+  }
+}
+
