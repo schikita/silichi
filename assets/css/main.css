@@ -783,9 +783,9 @@ button {
 }
 
 .text-block--standalone {
-  min-height: 60vh;
+  min-height: 90vh;
   display: flex;
-  align-items: center;
+  align-items: start;
   margin: var(--spacing-lg) 0;
   padding: var(--spacing-xl);
 }
@@ -880,6 +880,11 @@ button {
 
 .quote-text--white p {
   color: rgb(255, 255, 255);
+}
+
+.quote-text.quote-text--white{
+  position: relative;
+  z-index: 10;
 }
 
 /* Quote Card */
@@ -1100,7 +1105,7 @@ button {
   margin: var(--spacing-lg) 0;
 }
 
-.mini-collage {
+.mini-collage {   
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr;
   grid-template-rows: 150px 150px;
