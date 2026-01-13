@@ -2088,3 +2088,49 @@ button {
   }
 }
 
+/* ==================== WRAP TEXT AROUND PNG SILHOUETTE ==================== */
+
+.quote-card--wrap {
+  display: block; /* важно: не flex, иначе float-обтекание ломается */
+}
+
+/* PNG справа, текст обтекает по альфа-контуру */
+.quote-card__figure {
+  float: right;
+  width: clamp(180px, 22vw, 280px);
+  height: auto;
+
+  margin: 0 0 0.75rem 1rem; /* отступ слева от картинки + снизу */
+  shape-outside: url("../img/instructor-cutout.png");
+  shape-image-threshold: 0.35; /* насколько “цепляться” к альфе */
+  shape-margin: 14px;          /* “воздух” между текстом и контуром */
+
+  /* визуально */
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.25));
+}
+
+/* чтобы цитата гарантированно была над float’ом по слоям и не ломалась */
+.quote-card--wrap .quote {
+  position: relative;
+  z-index: 1;
+}
+
+/* Мобилка: фигуру вниз вправо, немного меньше */
+@media (max-width: 768px) {
+  .quote-card__figure {
+    width: 150px;
+    margin: 0.75rem 0 0 0.75rem; /* сверху и слева, т.к. будет внизу */
+    float: right;
+  }
+}
+
+/* Очень маленькие экраны: ещё компактнее */
+@media (max-width: 480px) {
+  .quote-card__figure {
+    width: 130px;
+    shape-margin: 10px;
+    margin-left: 0.6rem;
+  }
+}
+
+

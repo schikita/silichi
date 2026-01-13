@@ -1189,3 +1189,5 @@ function initSkiGame() {
 
   new SkiGame("gameCanvas", "gameScore", "gameStatus", "gameStart", "gameRestart");
 }
+
+
