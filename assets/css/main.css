@@ -1890,6 +1890,118 @@ button {
 /* Ensure readability on small screens */
 @media (max-width: 480px) {
   h1, .section-title, .chapter-title {
-    word-spacing: 100vw;
+    /*word-spacing: 100vw;*/
+    font-size: 20px;
+  }
+}
+
+/* ==================== FIX: PHOTO PANEL ON MOBILE ==================== */
+
+.photo-panel {
+  position: relative;
+}
+
+/* затемняющий слой для читаемости текста поверх фото */
+.photo-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.35) 40%,
+      rgba(0, 0, 0, 0.55) 100%);
+}
+
+/* контент всегда поверх ::after */
+.photo-panel__content {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  /* ключевой фикс: не режем контент фиксированной высотой */
+  .photo-panel {
+    height: auto;
+    min-height: 0;
+    padding: var(--spacing-md);
+    width: calc(100% - 1rem);
+    margin: var(--spacing-md) auto;
+    border-radius: calc(var(--border-radius) + 8px);
+  }
+
+  .photo-panel--80vh {
+    min-height: 0;
+    align-items: stretch;
+  }
+
+  /* на мобилке лучше всегда 1 колонка и нормальная высота элементов */
+  .quote-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+    margin: 0;
+  }
+
+  /* уменьшаем «тяжесть» и отступы в поверхностных блоках */
+  .quote-layout--onphoto .quote-text {
+    padding: var(--spacing-md);
+    border-left: none;
+    border-top: 4px solid rgba(255, 255, 255, 0.35);
+    background: rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(8px);
+  }
+
+  .quote-layout--onphoto .quote-text p {
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 600;
+  }
+
+  .quote-layout--onphoto .quote-card {
+    padding: var(--spacing-md);
+    min-height: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+  }
+
+  .quote-card .quote p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-panel {
+    width: calc(100% - 0.75rem);
+    padding: var(--spacing-sm);
+    border-radius: calc(var(--border-radius) + 6px);
+  }
+
+  .quote-layout--onphoto .quote-text,
+  .quote-layout--onphoto .quote-card {
+    padding: var(--spacing-sm);
+  }
+
+
+  .quote-layout--onphoto .quote-text p {
+    font-size: 0.95rem;
+  }
+
+  .quote-card .quote p {
+    font-size: 0.95rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .mini-collage {
+    grid-template-rows: 160px 160px 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .mini-collage {
+    grid-template-rows: 150px 150px 150px;
   }
 }
